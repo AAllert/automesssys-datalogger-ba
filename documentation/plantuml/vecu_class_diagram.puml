@@ -1,0 +1,367 @@
+@startuml vecu_class_diagram
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam class {
+    BackgroundColor White
+    BorderColor #888888
+    ArrowColor #555555
+}
+skinparam package {
+    BorderColor #666666
+    FontStyle bold
+}
+
+title vECU – Klassendiagramm
+
+' ─────────────────────────────────────────────────────────────────────────────
+' CONFIG
+' ─────────────────────────────────────────────────────────────────────────────
+package "config" #FEFECE {
+
+    class ConfigRow <<dataclass>> {
+        + label : str
+        + id_tester : int
+        + id_gateway : int
+        + sid : int
+        + did : int
+        + down_sampling : bool
+        + data_size_in_bytes : int
+        + start_bit : int
+        + length_in_bit : int
+        + data_type : str
+        + factor : float
+        + offset : float
+        + interpolate : bool
+        + car_name : str
+    }
+
+    class Config {
+        - path : Path
+        - config_rows : list[ConfigRow]
+        + get_rows() : list[ConfigRow]
+        + get_car_name() : str
+        + get_gateway_id(id_tester : int) : int | None
+        + get_unique_isotp_addresses() : list[tuple[int, int]]
+        + get_labels() : set[str]
+        + __len__() : int
+    }
+
+    Config "1" *-- "n" ConfigRow : enthält
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' STATE
+' ─────────────────────────────────────────────────────────────────────────────
+package "state" #DAE8FC {
+
+    enum VehicleState {
+        PARKED_OFF
+        PARKED_IGN_ON
+        CHARGING
+        CREEPING
+        DRIVING
+        HIGHWAY
+        --
+        VALID_TRANSITIONS : dict
+    }
+
+    class ScenarioStep <<dataclass>> {
+        + state : VehicleState
+        + duration : float
+    }
+    ScenarioStep --> VehicleState : referenziert
+
+    class InvalidTransitionError <<exception>> {
+    }
+
+    class YamlScenarioLoader {
+        - name : str
+        - loop : bool
+        - steps : list[ScenarioStep]
+        + get_steps() : list[ScenarioStep]
+        + get_name() : str
+        + should_loop() : bool
+        - _validate_transitions() : None
+    }
+    YamlScenarioLoader ..> ScenarioStep : erstellt
+    YamlScenarioLoader ..> InvalidTransitionError : wirft
+
+    class StateManager {
+        + scenario_steps : list[ScenarioStep]
+        + current_step_index : int
+        + time_in_state : float
+        + loop : bool
+        - _waiting_for_stop : bool
+        + load_scenario(steps : list[ScenarioStep]) : None
+        + set_loop(loop : bool) : None
+        + get_current_state() : VehicleState
+        + update(dt : float, velocity_kmh : float) : None
+        + get_time_in_state() : float
+        + get_progress() : float
+        + is_waiting_for_stop() : bool
+    }
+    StateManager o-- ScenarioStep : enthält
+    StateManager --> VehicleState : verwaltet
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' VEHICLES
+' ─────────────────────────────────────────────────────────────────────────────
+package "vehicles" #D5E8D4 {
+
+    class VehicleConstants <<dataclass>> {
+        + motor_power_kw : float
+        + motor_torque_nm : float
+        + gear_ratio : float
+        + wheel_radius_m : float
+        + battery_capacity_ah : float
+        + battery_nominal_voltage : float
+        + cell_count : int
+        + vehicle_mass_kg : float
+        + drag_coefficient : float
+        + frontal_area_m2 : float
+        + rolling_resistance : float
+        + inverter_efficiency : float
+        + motor_efficiency : float
+        + regen_efficiency : float
+        + max_ac_charge_power_kw : float
+        + max_dc_charge_power_kw : float
+        + ambient_temp_celsius : float
+        --
+        + drivetrain_efficiency : float
+        + max_motor_force_n : float
+        + max_acceleration_mps2 : float
+    }
+
+    class VehicleModule {
+        + vehicle_id : str
+        + physical_constants : VehicleConstants
+        + config_path : Path
+    }
+
+    VehicleModule "1" *-- "1" VehicleConstants : besitzt
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' PHYSICS
+' ─────────────────────────────────────────────────────────────────────────────
+package "physics" #F8CECC {
+
+    class PhysicsCalculator {
+        + battery_temp : float
+        + soc : float
+        + cooling_active : bool
+        - constants : VehicleConstants
+        - last_current : float
+        + calculate_motor_rpm(velocity_kmh : float) : float
+        + calculate_battery_current(velocity_kmh, state, accel) : float
+        + calculate_battery_voltage(current, soc) : float
+        + update_battery_temp(dt : float, current : float) : float
+        + update_soc(dt : float, current : float) : float
+        + get_soc() : float
+    }
+    PhysicsCalculator --> VehicleConstants : verwendet
+    PhysicsCalculator ..> VehicleState : verwendet (in Methoden)
+
+    class DerivedValuesCalculator {
+        - constants : VehicleConstants
+        + calc_derived_values(snap : TelemetrySnapshot, dt : float) : TelemetrySnapshot
+    }
+    DerivedValuesCalculator --> VehicleConstants : verwendet
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' SIMULATION
+' ─────────────────────────────────────────────────────────────────────────────
+package "simulation" #E1D5E7 {
+
+    class TelemetrySnapshot <<dataclass>> {
+        + state : VehicleState
+        + velocity_kmh : float
+        + target_velocity_kmh : float
+        + acceleration_mps2 : float
+        + motor_rpm : float
+        + terminal_15 : float
+        + ignition_on : float
+        + odometer_total_km : float
+        + trip_distance_km : float
+        + ambient_temp_c : float
+        + cabin_temp_c : float
+        + coolant_temp_c : float
+        + hv_voltage_v : float
+        + hv_current_a : float
+        + hv_power_kw : float
+        + hv_soc_pct : float
+        + battery_temp_avg_c : float
+        + battery_temp_min_c : float
+        + battery_temp_max_c : float
+        + cell_voltage_sum_v : float
+        + cell_voltage_min_v : float
+        + cell_voltage_max_v : float
+        + fan_current_a : float
+        + compressor_speed_rpm : float
+        + charge_current_limit_a : float
+        + discharge_current_limit_a : float
+    }
+    TelemetrySnapshot --> VehicleState : referenziert
+
+    enum SignalName {
+        V_VEH1..5
+        N_EM1 / N_EM2 / N_EM_TRAC
+        CUR_HV_BAT1 / U_HV_BAT
+        R_SOC_BAT / T_HV_BAT
+        S_MILEAGE / A_VEH
+        IGNITION_ON / ST_TERM15
+        T_AMB / T_CAB / T_MIN_HV_BAT / T_MAX_HV_BAT
+        CUR_FAN / N_CMPR / TQ_CMPR
+        U_CELL_MIN1 / U_CELL_MAX1 / U_SUM_CELL
+        CUR_CHRG_LIM_DYN / CUR_LIM_DYN_DCHRG
+    }
+
+    class CatalogEntry <<dataclass>> {
+        + label : SignalName
+        + title : str
+        + unit : str
+        + decimals : int
+        + extractor : Callable[[TelemetrySnapshot], float]
+        + value_map : dict | None
+        + format_value(value : float) : str
+    }
+    CatalogEntry --> SignalName : identifiziert
+    CatalogEntry ..> TelemetrySnapshot : extrahiert Wert
+
+    note "SIGNAL_CATALOG : dict[SignalName, CatalogEntry]\nModul-globales Signal-Register" as N_cat
+    CatalogEntry .. N_cat
+
+    class UdsEncoder {
+        - config : Config
+        + encode(did : int, snap : TelemetrySnapshot) : bytes
+        - _encode_ignition(did_bytes, snap) : bytes
+        - _encode_environment(did_bytes, snap) : bytes
+        - _encode_standard(did, did_bytes, snap) : bytes
+    }
+    UdsEncoder --> Config : nutzt
+    UdsEncoder ..> CatalogEntry : nutzt (via SIGNAL_CATALOG)
+    UdsEncoder ..> TelemetrySnapshot : liest
+
+    class VehicleSimulator {
+        + velocity_kmh : float
+        + target_velocity_kmh : float
+        + acceleration_mps2 : float
+        + odometer_km : float
+        + trip_distance_km : float
+        + last_snapshot : TelemetrySnapshot
+        - state_manager : StateManager
+        - physics : PhysicsCalculator
+        - uds_encoder : UdsEncoder
+        - derived_values_calculator : DerivedValuesCalculator
+        - constants : VehicleConstants
+        - _rng : Random
+        + update(dt : float) : None
+        + get_value_for_did(did : int) : bytes
+        + get_current_state() : VehicleState
+    }
+    VehicleSimulator "1" *-- "1" StateManager
+    VehicleSimulator "1" *-- "1" PhysicsCalculator
+    VehicleSimulator "1" *-- "1" UdsEncoder
+    VehicleSimulator "1" *-- "1" DerivedValuesCalculator
+    VehicleSimulator --> VehicleConstants : nutzt
+    VehicleSimulator ..> TelemetrySnapshot : erstellt/hält
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' COMMUNICATION
+' ─────────────────────────────────────────────────────────────────────────────
+package "communication" #FFE6CC {
+
+    class CanFrame <<dataclass>> {
+        + can_id : int
+        + data : bytes
+    }
+
+    class UdsRequest <<dataclass>> {
+        + can_id : int
+        + payload : bytes
+    }
+
+    abstract class Transport <<abstract>> {
+        {abstract} + in_waiting : int
+        {abstract} + read_frame() : CanFrame | None
+        {abstract} + read_frame_blocking(timeout_s : float) : CanFrame | None
+        {abstract} + write_frame(frame : CanFrame) : None
+        {abstract} + close() : None
+    }
+
+    class TextCanTransport {
+        + on_unknown_line : Callable | None
+        + frames_received : int
+        + frames_sent : int
+        # _parse_line(line : str) : CanFrame | None
+        # _format_frame(frame : CanFrame) : str
+        # _dispatch(line : str) : CanFrame | None
+    }
+    Transport <|-- TextCanTransport
+
+    class StdinTransport {
+        - _can_out : TextIO
+        - _queue : Queue
+        + in_waiting : int
+        + read_frame() : CanFrame | None
+        + read_frame_blocking(timeout_s : float) : CanFrame | None
+        + write_frame(frame : CanFrame) : None
+        + close() : None
+    }
+    TextCanTransport <|-- StdinTransport
+
+    class UartTransport {
+        - _serial : Serial
+        - _queue : Queue
+        + in_waiting : int
+        + read_frame() : CanFrame | None
+        + read_frame_blocking(timeout_s : float) : CanFrame | None
+        + write_frame(frame : CanFrame) : None
+        + close() : None
+    }
+    TextCanTransport <|-- UartTransport
+
+    class NativeCanTransport {
+        - _bus : can.Bus
+        - _queue : Queue
+        - _valid_rx : set[int]
+        + in_waiting : int
+        + read_frame() : CanFrame | None
+        + read_frame_blocking(timeout_s : float) : CanFrame | None
+        + write_frame(frame : CanFrame) : None
+        + close() : None
+    }
+    Transport <|-- NativeCanTransport
+
+    class IsoTpCodec {
+        - _transport : Transport
+        - _config : Config
+        + process_frame(frame : CanFrame) : UdsRequest | None
+        + send_response(request_can_id : int, payload : bytes) : None
+    }
+    IsoTpCodec --> Transport : nutzt
+    IsoTpCodec --> Config : nutzt
+    IsoTpCodec ..> CanFrame : verarbeitet
+    IsoTpCodec ..> UdsRequest : erstellt
+
+    class UdsHandler {
+        - _simulator : VehicleSimulator
+        + process(can_id : int, data : bytes) : bytes
+        - _rdbi(sid, data) : bytes
+        - _session_control(sid, data) : bytes
+        - _wdbi(sid, data) : bytes
+    }
+    UdsHandler --> VehicleSimulator : nutzt
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Cross-package: DerivedValuesCalculator → TelemetrySnapshot
+' ─────────────────────────────────────────────────────────────────────────────
+DerivedValuesCalculator ..> TelemetrySnapshot : bereichert (dataclasses.replace)
+
+@enduml

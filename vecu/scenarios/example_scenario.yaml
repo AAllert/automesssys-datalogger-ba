@@ -1,0 +1,29 @@
+name: "Example Scenario"
+description: "An example driving and charging scenario."
+
+sequence:
+  - state: PARKED_OFF # Vehicle is parked and turned off
+    duration: 2.0 # Duration in seconds
+
+  - state: PARKED_IGN_ON # Vehicle is parked with ignition on
+    duration: 1.0
+
+  - state: DRIVING # Vehicle is driving
+    duration: 45.0
+
+  - state: HIGHWAY # Vehicle is driving on the highway
+    duration: 30.0
+
+  - state: PARKED_IGN_ON # Vehicle is parked with ignition on
+    duration: 5.0
+
+  - state: CHARGING # Vehicle is charging
+    duration: 30.0
+
+  - state: PARKED_IGN_ON # Vehicle is parked with ignition on
+    duration: 2.0
+
+  - state: PARKED_OFF # Vehicle is parked and turned off
+    duration: 10.0
+
+loop: true # Scenario will loop indefinitely

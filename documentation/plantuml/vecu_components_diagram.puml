@@ -1,0 +1,136 @@
+@startuml vecu_components_diagram
+skinparam componentStyle rectangle
+skinparam shadowing false
+skinparam backgroundColor #FFFFFF
+skinparam component {
+    BackgroundColor White
+    BorderColor #888888
+    ArrowColor #555555
+}
+skinparam package {
+    BorderColor #666666
+    BackgroundColor #F9F9F9
+    FontStyle bold
+}
+skinparam node {
+    BackgroundColor #EEEEEE
+    BorderColor #888888
+}
+skinparam database {
+    BackgroundColor #FFFACD
+    BorderColor #CCAA00
+}
+
+title vECU – Komponentendiagramm
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Externe Akteure und Ressourcen
+' ─────────────────────────────────────────────────────────────────────────────
+actor "Datalogger /\nTestrunner" as tester
+
+node "Physisches Medium\n(CAN-Bus / UART / stdin)" as medium
+
+database "Szenario\nYAML" as yaml_db
+database "Signal-Config\nCSV" as csv_db
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Kommunikationsschicht
+' ─────────────────────────────────────────────────────────────────────────────
+package "communication" #FFE6CC {
+    component "Transport\n«StdinTransport /\nUartTransport /\nNativeCanTransport»" as transport
+    component "IsoTpCodec\n«ISO 15765-2»" as isotp
+    component "UdsHandler\n«UDS-Dienste»" as udsh
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Simulationsschicht
+' ─────────────────────────────────────────────────────────────────────────────
+package "simulation" #E1D5E7 {
+    component "VehicleSimulator\n«Orchestrator»" as sim
+    component "UdsEncoder\n«Signalkodierung»" as enc
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Physikschicht
+' ─────────────────────────────────────────────────────────────────────────────
+package "physics" #F8CECC {
+    component "PhysicsCalculator\n«Batteriemodell,\nMotorantrieb»" as physicsCalc
+    component "DerivedValuesCalculator\n«Abgeleitete Signale»" as derived
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Zustandsschicht
+' ─────────────────────────────────────────────────────────────────────────────
+package "state" #DAE8FC {
+    component "StateManager\n«Zustandsautomat»" as stmgr
+    component "YamlScenarioLoader\n«Szenario-Parser»" as loader
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Konfigurationsschicht
+' ─────────────────────────────────────────────────────────────────────────────
+package "config" #FEFECE {
+    component "Config\n«UDS-Signalkonfiguration»" as configClass
+}
+
+package "vehicles" #D5E8D4 {
+    component "VehicleModule\n+ VehicleConstants\n«Fahrzeugparameter»" as vmod
+}
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Externe Verbindungen
+' ─────────────────────────────────────────────────────────────────────────────
+tester <--> medium : CAN-Frames
+medium <--> transport : CAN-Frames
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Kommunikationsfluss (eingehend)
+' ─────────────────────────────────────────────────────────────────────────────
+transport --> isotp : CanFrame
+isotp --> udsh : UdsRequest\n(SID + Payload)
+
+' ─────────────────────────────────────────────────────────────────────────────
+' UDS-Verarbeitung → Simulation
+' ─────────────────────────────────────────────────────────────────────────────
+udsh --> sim : get_value_for_did(did)
+sim --> enc : encode(did, TelemetrySnapshot)
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Kommunikationsfluss (ausgehend)
+' ─────────────────────────────────────────────────────────────────────────────
+enc --> isotp : UDS-Antwort (bytes)
+isotp --> transport : CanFrame (fragmentiert)
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Simulationsschicht → Physik / Zustand
+' ─────────────────────────────────────────────────────────────────────────────
+sim --> stmgr : update(dt, velocity_kmh)
+sim --> physicsCalc : Physikberechnungen\n(RPM, Strom, Spannung, SoC, Temp)
+sim --> derived : calc_derived_values(snapshot)
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Konfigurationsabhängigkeiten
+' ─────────────────────────────────────────────────────────────────────────────
+enc --> configClass : ConfigRow\n(DID, Bits, Skalierung)
+isotp --> configClass : ISO-TP-Adressen\n(id_tester / id_gateway)
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Szenario laden
+' ─────────────────────────────────────────────────────────────────────────────
+loader --> yaml_db : liest
+loader --> stmgr : ScenarioStep[ ]\n(Zustand + Dauer)
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Fahrzeugkonstanten
+' ─────────────────────────────────────────────────────────────────────────────
+vmod --> sim : VehicleConstants
+vmod --> physicsCalc : VehicleConstants
+vmod --> derived : VehicleConstants
+
+' ─────────────────────────────────────────────────────────────────────────────
+' Dateiabhängigkeiten
+' ─────────────────────────────────────────────────────────────────────────────
+configClass --> csv_db : liest
+vmod --> csv_db : config_path (CSV-Pfad)
+
+@enduml

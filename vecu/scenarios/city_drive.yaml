@@ -1,0 +1,38 @@
+name: "City drive with Charging"
+description: "Typical city driving followed by AC charging."
+
+sequence:
+  - state: PARKED_OFF
+    duration: 2.0
+
+  - state: PARKED_IGN_ON
+    duration: 1.0
+
+  - state: CREEPING
+    duration: 5.0
+
+  - state: DRIVING
+    duration: 10.0
+
+  - state: HIGHWAY
+    duration: 45.0
+
+  - state: DRIVING
+    duration: 10.0
+
+  - state: CREEPING
+    duration: 60.0
+
+  - state: PARKED_IGN_ON
+    duration: 5.0
+
+  - state: CHARGING
+    duration: 30.0
+
+  - state: PARKED_IGN_ON
+    duration: 2.0
+
+  - state: PARKED_OFF
+    duration: 10.0
+
+loop: true

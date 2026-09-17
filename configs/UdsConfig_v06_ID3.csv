@@ -1,0 +1,158 @@
+﻿strEcu,strLabLong,strLab,numIdTstr,numIdGtwy,numSid,numDid,numDwnSamp,numBytes,strtByte,lenByte,strDbc,strType,numFac,numOfs,stIntp,stUse1,stUse2,stUse3,stUse4,stRvt,numMtyLvl,strCmnt,strName
+198,Powerline Kommunikation: Ladeablauf Zustand,stPwrLine,1860,1966,34,18785,1,1,0,8,7|8@0,uint,1,0,0,0,1,1,0,1,,,ID3
+198,HV-Ladestrom Sollwert,cuHvBatChrgSet,1860,1966,34,16952,1,2,0,16,7|16@0,uint,10,0,1,0,1,1,0,1,,,ID3
+198,Steckdose A für Batterieladung-Status Steckererkennung,stScktAPlug,1860,1966,34,7642,5,5,0,16,7|16@0,uint,1,0,0,0,1,1,0,1,,,ID3
+198,Steckdose A für Batterieladung-Ansteuerung Ladedeckelverriegelung Ladedose A,stScktALck,1860,1966,34,7642,5,5,0,16,7|16@0,uint,1,0,0,0,1,1,0,1,,,ID3
+198,Hochvolt-Ladegerät - aktuelle Ausgangsspannung,uHcChrgr,1860,1966,34,7591,1,2,0,16,7|16@0,uint,10,0,1,0,1,1,0,1,,,ID3
+198,Kühlmitteltemperatur,tClnt,1860,1966,34,5602,5,1,0,8,7|8@0,uint,1,0,1,0,1,1,0,1,,,ID3
+198,Spannung Ladedose A: Proximity,uScktAProx,1860,1966,34,5413,1,2,0,16,7|16@0,uint,1,0,1,1,1,1,0,1,,,ID3
+198,Energieumsatz pro Rail-Phase 1,wRail1,1860,1966,34,5383,2,9,0,24,7|24@0,uint,10,0,1,0,1,1,0,0,,,ID3
+198,Energieumsatz pro Rail-Phase 2,wRail2,1860,1966,34,5383,2,9,24,24,31|24@0,uint,10,0,1,0,1,1,0,0,,,ID3
+198,Energieumsatz pro Rail-Phase 3,wRail3,1860,1966,34,5383,2,9,48,24,55|24@0,uint,10,0,1,0,1,1,0,0,,,ID3
+198,HV_DC_current_obc,curHvDcObc,1860,1966,34,4157,1,2,0,16,7|16@0,uint,10,0,1,0,1,1,0,1,,,ID3
+198,DC/DC-Wandler Temperaturwerte-Sensor 1,tDcDcSens1,1860,1966,34,2063,5,6,8,8,15|8@0,uint,9.9565,0,1,0,1,1,0,1,,,ID3
+198,DC/DC-Wandler Temperaturwerte-Sensor 2,tDcDcSens2,1860,1966,34,2063,5,6,24,8,31|8@0,uint,9.9565,0,1,0,1,1,0,1,,,ID3
+198,DC/DC-Wandler Temperaturwerte-Sensor 3,tDcDcSens3,1860,1966,34,2063,1,6,40,8,47|8@0,uint,9.9565,0,1,0,1,1,0,1,,,ID3
+198,Hochvolt DC-Spannungswerte-Sensor 1,uHvDcSens1,1860,1966,34,2061,1,6,0,16,7|16@0,uint,10,0,1,0,1,1,0,0,,,ID3
+198,Hochvolt DC-Spannungswerte-Sensor 2,uHvDcSens2,1860,1966,34,2061,1,6,16,16,23|16@0,uint,10,0,1,0,1,1,0,0,,,ID3
+198,Hochvolt DC-Spannungswerte-Sensor 3,uHvDcSens3,1860,1966,34,2061,1,6,32,16,39|16@0,uint,10,0,1,0,1,1,0,0,,,ID3
+8,Lenkradheizung-PWM-Wert,rPwmStrgWhl,1862,1968,34,21765,2,5,16,8,23|8@0,uint,1,0,1,1,0,1,0,1,,,ID3
+8,Versorgungsspannung 2 für externe Komponenten,uExt2,1862,1968,34,20761,1,1,0,8,7|8@0,uint,10,0,1,0,0,1,0,0,,,ID3
+8,Sitzheizung vorn rechts-Leistungskontingentierung durch Energiemanagement,unknown6,1862,1968,34,15072,2,27,0,8,7|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+8,Sitzheizung vorn rechts-Sitzlehnenheizung: Stromaufnahme (Effektivwert),unknown5,1862,1968,34,15072,2,27,0,8,7|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+8,Sitzheizung vorn rechts-Sitzkissenheizung: Stromaufnahme (Effektivwert),curSeatFrntRight,1862,1968,34,15072,2,27,128,8,135|8@0,uint,10,0,1,1,0,1,0,1,,,ID3
+8,Sitzheizung vorn links-Leistungskontingentierung durch Energiemanagement,unknown4,1862,1968,34,15071,2,27,0,8,7|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+8,Sitzheizung vorn links-Sitzlehnenheizung: Stromaufnahme (Effektivwert),unknown3,1862,1968,34,15071,2,27,0,8,7|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+8,Sitzheizung vorn links-Sitzkissenheizung: Stromaufnahme (Effektivwert),curSeatFrntLeft,1862,1968,34,15071,2,27,128,8,135|8@0,uint,10,0,1,1,0,1,0,1,,,ID3
+8,Versorgungsspannung für externe Komponenten,uExt,1862,1968,34,9825,1,1,0,8,7|8@0,uint,10,0,1,0,0,1,0,0,,,ID3
+8,Gebläsestrom,curFan,1862,1968,34,9820,1,1,0,8,7|8@0,uint,4,0,1,1,1,1,0,1,,,ID3
+8,Innentemperatur,tCab,1862,1968,34,9747,5,2,0,16,7|16@0,uint,5,40,1,1,1,1,0,1,,,ID3
+8,Außentemperatur intern berechnet,tAmbCalc,1862,1968,34,9738,5,1,0,8,7|8@0,uint,2,50,1,0,0,1,0,1,,,ID3
+8,Außentemperatur,tAmb,1862,1968,34,9737,5,1,0,8,7|8@0,uint,2,50,1,1,1,1,1,1,,,ID3
+8,Kühlerlüfteransteuerung: Sollwert,rFanDes,1862,1968,34,9735,2,1,0,8,7|8@0,uint,2.5,0,1,0,0,1,0,1,,,ID3
+8,Kompressorlast,tqCmpr,1862,1968,34,9732,1,1,0,8,7|8@0,uint,1,0,1,1,1,1,0,0,,,ID3
+8,Kompressordrehzahl,nCmpr,1862,1968,34,9731,1,1,0,8,7|8@0,uint,0.02,0,1,1,1,1,0,1,,,ID3
+8,Reichweitenverbrauchsprognose-Zeit bis zum Übergang vom dynamischen in stationären Betrieb,tiRngDynStat2,1862,1968,34,2199,5,12,0,8,7|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+8,Reichweitenverbrauchsprognose-Änderung der Prädiktion iniziiert durch Kundenaktion,tiRngDynStat1,1862,1968,34,2199,5,12,8,8,15|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+8,Reichweitenverbrauchsprognose-Dynamsiche Leistung für Heizen / Kühlen,pwrRngDyn2,1862,1968,34,2199,5,12,24,8,31|8@0,uint,0.1,0,1,0,0,1,0,0,,,ID3
+8,Reichweitenverbrauchsprognose-Stationäre Leistung für Heizen / Kühlen,pwrRngDyn1,1862,1968,34,2199,5,12,32,16,39|16@0,uint,0.1,0,1,0,0,1,0,0,,,ID3
+8,Reichweitenverbrauchsprognose-Verbrauch für Heizen und Kühlen der Bauteile,consRngComp,1862,1968,34,2199,5,12,56,8,63|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+8,Reichweitenverbrauchsprognose-1-Bit Verbrauch Bauteil,unknown2,1862,1968,34,2199,5,12,64,8,71|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+8,Reichweitenverbrauchsprognose-Verbrauch für Heizen und Kühlen Innenraum,consRngCab,1862,1968,34,2199,5,12,72,16,79|16@0,uint,1,0,1,0,0,1,0,0,,,ID3
+8,Reichweitenverbrauchsprognose-1-Bit Verbrauch Innenraum,unknown1,1862,1968,34,2199,5,12,88,8,95|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+8,Hochvolt-Luftheizer Status: intern-Strom: Istwert,curAirHeater,1862,1968,34,2049,1,8,0,8,7|8@0,uint,4,0,0,1,1,1,0,1,,,ID3
+8,Hochvolt-Luftheizer Status: intern-Versorgungsspannung,stUHvHeat,1862,1968,34,2049,2,8,16,8,23|8@0,uint,1,0,0,0,0,1,0,1,,,ID3
+8,Hochvolt-Luftheizer Status: intern-Hochvolt-Bordnetzspannung,stUHv,1862,1968,34,2049,2,8,48,8,55|8@0,uint,1,0,0,0,0,1,0,1,,,ID3
+8,Hochvolt-Luftheizer Status: intern-Hochvolt-Heizer: Status,stHvHeat,1862,1968,34,2049,2,8,56,8,63|8@0,uint,1,0,0,0,0,1,0,0,,,ID3
+8,Hochvolt-Luftheizer Status: intern-Versorgungsspannung: Istwert,uAirHeater,1862,1968,34,2049,2,8,32,8,39|8@0,uint,10,0,0,1,1,1,0,1,,,ID3
+8,Standard - Umgebungsdaten 1-Jahr,tiYear,1862,1968,34,701,2,10,48,32,55|32@0,uint,1,0,0,0,0,1,0,1,,,ID3
+8,Standard - Umgebungsdaten 1-Monat,tiMonth,1862,1968,34,701,2,10,48,32,55|32@0,uint,1,0,0,0,0,1,0,0,,,ID3
+8,Standard - Umgebungsdaten 1-Tag,tiDay,1862,1968,34,701,2,10,48,32,55|32@0,uint,1,0,0,0,0,1,0,0,,,ID3
+8,Standard - Umgebungsdaten 1-Stunden,tiHour,1862,1968,34,701,2,10,48,32,55|32@0,uint,1,0,0,0,0,1,0,0,,,ID3
+8,Standard - Umgebungsdaten 1-Minuten,tiMin,1862,1968,34,701,2,10,48,32,55|32@0,uint,1,0,0,0,0,1,0,0,,,ID3
+8,Standard - Umgebungsdaten 1-Sekunden,tiSec,1862,1968,34,701,2,10,48,32,55|32@0,uint,1,0,0,0,0,1,0,0,,,ID3
+8,Standard - Umgebungsdaten 1-Kilometerstand,sMileage,1862,1968,34,701,2,10,8,24,15|24@0,uint,1,0,1,0,0,1,0,0,,,ID3
+1,Vehicle Operation Data - Distance/Fuel Used-Total Distance Traveled (Lifetime),sVehLife,402391158,402522230,34,63511,5,16,32,32,39|32@0,uint,10,0,1,1,1,1,1,1,,,ID3
+1,Vehicle Operation Data - Distance/Fuel Used-Total Distance Traveled (Recent),sVehTrip,402391158,402522230,34,63511,5,16,0,32,7|32@0,uint,10,0,1,0,0,1,0,0,,,ID3
+1,Gaspedalstellung,rApp,402391158,402522230,34,62537,1,1,0,8,7|8@0,uint,2.55,0,1,1,0,1,1,1,,,ID3
+1,Fahrzeuggeschwindigkeit,vVeh1,402391158,402522230,34,62477,1,1,0,8,7|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+1,Leistungselektronik Traktionsnetzspannung,uHv,402391158,402522230,34,18037,1,2,0,16,7|16@0,uint,10,0,1,1,1,1,0,1,,,ID3
+1,Beschleunigung: Signal,aVeh,402391158,402522230,34,17721,1,2,0,16,7|16@0,int,1000,0,1,1,0,1,0,1,,,ID3
+1,berechnete Kühlmitteltemperatur DCDC-Wandler,tDcDcCalc,402391158,402522230,34,17336,5,2,0,16,7|16@0,uint,10,0,1,1,1,1,1,1,,,ID3
+1,Aktuelle Drehzahl des Elektromotors,nEm1,402391158,402522230,34,15864,1,2,0,16,7|16@0,uint,2,0,1,0,0,1,0,0,,,ID3
+1,Hybrid Batterie Ladezustand Istwert normiert,rSocBat,402391158,402522230,34,15855,5,2,0,16,7|16@0,uint,100,0,1,0,0,1,1,1,,,ID3
+1,Fahrzeuggeschwindigkeit,vVeh5,402391158,402522230,34,11414,1,2,8,8,15|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+1,Fahrzeuggeschwindigkeit,vVeh4,402391158,402522230,34,11030,1,2,0,16,7|16@0,uint,100,0,1,1,0,1,1,1,,,ID3
+1,Wegstrecke des Fahrzeuges,sVeh,402391158,402522230,34,10586,5,3,0,24,7|24@0,uint,1,0,1,0,0,1,0,0,,,ID3
+1,TQ_EM_3,tqEm3,402391158,402522230,34,4437,1,2,0,16,7|16@0,uint,1,0,1,0,0,1,0,0,,,ID3
+1,TQ_EM_2,tqEm2,402391158,402522230,34,4436,1,2,0,16,7|16@0,uint,1,0,1,0,0,1,0,0,,,ID3
+1,TQ_EM_1,tqEm1,402391158,402522230,34,4435,1,2,0,16,7|16@0,uint,1,0,1,0,0,1,0,0,,,ID3
+1,Hochvoltkoordinator: Aktive Entladung Status,stHvCord,402391158,402522230,34,869,1,1,0,8,7|8@0,uint,1,0,0,0,1,1,0,0,,,ID3
+1,Hochvolt-Nebenverbaucher: aktuelle Leistung,pwrHvAux,402391158,402522230,34,868,1,2,0,16,7|16@0,uint,10,0,1,1,1,1,1,1,,,ID3
+1,Hochvoltkoordinator: Niedervolt DC-Laden Status,stLvDcChrg,402391158,402522230,34,866,1,1,0,8,7|8@0,uint,1,0,0,0,1,1,0,0,,,ID3
+1,Hochvolt-Nebenverbaucher: Gesamtstrom,curHvAux,402391158,402522230,34,864,1,2,0,16,7|16@0,uint,100,0,1,1,1,1,1,1,,,ID3
+1,Hochvolt-Nebenverbaucher: maximal zulässige Leistung,pwrHvAuxMax,402391158,402522230,34,863,1,4,8,24,15|24@0,uint,100000,0,1,1,1,1,0,1,,,ID3
+1,Allradantrieb: Elektroantrieb der Hinterachse Sollmoment,tqRearAxleDes,402391158,402522230,34,836,1,2,0,16,7|16@0,int,2,0,1,0,0,1,0,1,,,ID3
+1,Allradantrieb: Differenzmoment Sollwert,tqDiffDes,402391158,402522230,34,835,1,2,0,16,7|16@0,uint,1,0,1,0,0,1,0,0,,,ID3
+1,Allradantrieb: Elektroantrieb der Vorderachse Betriebsmodus,stFrntAxle,402391158,402522230,34,834,1,1,0,8,7|8@0,uint,1,0,0,0,0,1,0,0,,,ID3
+1,Allradantrieb: Elektroantrieb der Hinterachse Betriebsmodus,stRearAxle,402391158,402522230,34,833,1,1,0,8,7|8@0,uint,1,0,0,0,0,1,0,1,,,ID3
+1,Allradantrieb: Momentenbegrenzung Hinterachse,tqRearAxleLim,402391158,402522230,34,828,1,1,0,8,7|8@0,uint,0.05,0,1,1,0,1,0,0,,,ID3
+1,Allradantrieb: Elektroantrieb der Hinterachse Istmoment,tqRearAxle,402391158,402522230,34,827,1,2,0,16,7|16@0,int,1,0,1,1,0,1,1,1,,,ID3
+140,Pumpe für HV-Batterie Kühlmittel: Leistungssollwert,pwrClntPmpHvBat,402391163,402522235,34,29755,1,1,0,8,7|8@0,uint,1,0,1,1,1,1,0,1,,,ID3
+140,Maximale Ladespannung,uChrgMax,402391163,402522235,34,20849,5,2,0,16,7|16@0,uint,1,0,1,0,1,1,0,1,,,ID3
+140,Minimale Entladespannung,uDchrgMin,402391163,402522235,34,20848,5,2,0,16,7|16@0,uint,1,0,1,0,1,1,0,1,,,ID3
+140,Batterietemperatur,tHvBat,402391163,402522235,34,10763,5,1,0,8,7|8@0,uint,2,40,1,1,1,1,1,1,,,ID3
+140,Strom 2 der Hochvolt / Hybrid Batterie,cur2HvBat,402391163,402522235,34,7742,1,4,8,24,15|24@0,int,100,1500,1,1,1,1,1,1,,,ID3
+140,Strom der Hochvolt / Hybrid Batterie,curHvBat1,402391163,402522235,34,7741,1,4,16,16,23|16@0,int,100,189,1,1,1,1,1,1,,,ID3
+140,Summe der Spannung aller Batteriezellen,uSumCell,402391163,402522235,34,7740,1,4,0,32,7|32@0,uint,4096,0,1,0,1,1,0,1,,,ID3
+140,Spannung der Hochvolt-Batterie,uHvBat,402391163,402522235,34,7739,1,2,0,16,7|16@0,uint,4,0,1,0,1,1,0,1,,,ID3
+140,Positive Spannung der Hochvolt-Batterie hinter den Ladeschützen,uPosHvBatChrgCtctr,402391163,402522235,34,7737,1,2,0,16,7|16@0,int,32,0,1,0,1,1,0,1,,,ID3
+140,Positive Spannung der Hochvolt-Batterie hinter den Schützen,uPosHvBatCtctr,402391163,402522235,34,7736,1,2,0,16,7|16@0,uint,32,0,1,1,1,1,0,1,,,ID3
+140,Positive Spannung der Hochvolt-Batterie vor den Schützen,uPosHvBat,402391163,402522235,34,7734,1,2,0,16,7|16@0,uint,32,0,1,0,1,1,0,1,,,ID3
+140,minimale Spannung der Batteriezellen-Index 1,numUCellMin1,402391163,402522235,34,7732,1,4,16,16,23|16@0,uint,1,0,1,0,1,1,0,1,,,ID3
+140,minimale Spannung der Batteriezellen-Wert,uCellMin1,402391163,402522235,34,7732,1,4,0,16,7|16@0,uint,4096,0,1,1,1,1,0,1,,,ID3
+140,maximale Spannung der Batteriezellen-Index 1,numUCellMax1,402391163,402522235,34,7731,1,4,16,16,23|16@0,uint,1,0,1,0,1,1,0,1,,,ID3
+140,maximale Spannung der Batteriezellen-Wert,uCellMax1,402391163,402522235,34,7731,1,4,0,16,7|16@0,uint,4096,0,1,1,1,1,0,1,,,ID3
+140,Hochvolt / Hybrid Batterie Historiendaten 1-Zähler für Amperestunden Ladung,cbHvBatChrg,402391163,402522235,34,7730,1,16,0,32,7|32@0,uint,550,0,1,1,1,1,0,1,,,ID3
+140,Hochvolt / Hybrid Batterie Historiendaten 1-Zähler für Amperestunden Entladung,cbHvBatDchrg,402391163,402522235,34,7730,1,16,32,32,39|32@0,int,550,0,1,1,1,1,0,1,,,ID3
+140,Hochvolt / Hybrid Batterie Historiendaten 1-Zähler für Kilowattstunden Ladung,wHvBatChrg,402391163,402522235,34,7730,1,16,64,32,71|32@0,uint,8590,0,1,1,1,1,0,1,,,ID3
+140,Hochvolt / Hybrid Batterie Historiendaten 1-Zähler für Kilowattstunden Entladung,wHvBatDchrg,402391163,402522235,34,7730,1,16,96,32,103|32@0,int,8590,0,1,1,1,1,0,1,,,ID3
+140,minimaler Ladezustand-Index 1,numChrgMin1,402391163,402522235,34,7725,1,4,16,16,23|16@0,uint,1,-1,0,0,1,1,0,1,,,ID3
+140,minimaler Ladezustand-Wert,chrgMin1,402391163,402522235,34,7725,1,4,0,16,7|16@0,uint,100,0,1,1,1,1,0,1,,,ID3
+140,maximaler Ladezustand-Index 1,numChrgMax1,402391163,402522235,34,7724,1,4,16,16,23|16@0,uint,1,-1,0,0,1,1,0,1,,,ID3
+140,maximaler Ladezustand-Wert,chrgMax1,402391163,402522235,34,7724,1,4,0,16,7|16@0,uint,100,0,1,1,1,1,0,1,,,ID3
+140,Dynamische Grenze für Entladestrom-Grenze für Entladestrom,curLimDynDchrg,402391163,402522235,34,7708,2,2,0,16,7|16@0,uint,1,0,1,0,1,1,0,1,,,ID3
+140,Dynamische Grenze für Ladestrom-Grenze für Ladestrom,curChrgLimDyn,402391163,402522235,34,7707,2,2,0,16,7|16@0,uint,5,0,1,1,1,1,0,1,,,ID3
+140,Niedrigste gemessene Temperatur-Temperaturgeber,numTMinHvBat,402391163,402522235,34,7695,5,4,16,16,23|16@0,uint,1,0,0,0,1,1,0,1,,,ID3
+140,Niedrigste gemessene Temperatur-Wert,tMinHvBat,402391163,402522235,34,7695,5,4,0,16,7|16@0,int,64,0,1,1,1,1,1,1,,,ID3
+140,Höchste gemessene Temperatur-Temperaturgeber,numTMaxHvBat,402391163,402522235,34,7694,5,4,16,16,23|16@0,uint,1,0,0,0,1,1,0,1,,,ID3
+140,Höchste gemessene Temperatur-Wert,tMaxHvBat,402391163,402522235,34,7694,5,4,0,16,7|16@0,uint,64,0,1,1,1,1,1,1,,,ID3
+140,Status der Leistungsreduzierung,stPwrRed2,402391163,402522235,34,7690,1,1,0,8,7|8@0,uint,1,0,0,0,1,1,0,1,,,ID3
+140,Kühltemperatur der Hochvolt / Hybrid Batterie-Einlass,tClntHvBatIn,402391163,402522235,34,6301,5,4,0,16,7|16@0,uint,64,0,1,1,1,1,0,1,,,ID3
+140,Kühltemperatur der Hochvolt / Hybrid Batterie-Auslass,tClntHvBatOut,402391163,402522235,34,6301,5,4,16,16,23|16@0,uint,64,0,1,1,1,1,0,1,,,ID3
+140,Spannung im Hochvolt-System-Spannung der Hochvolt / Hybrid Batterie hinter den Schützen,uHvBatCtctr,402391163,402522235,34,6299,1,2,0,16,7|16@0,uint,2,1000,1,0,1,1,0,1,,,ID3
+140,Strom PTC-Heizer HV-Batterie,curPtcHvBat,402391163,402522235,34,5664,1,1,0,8,7|8@0,uint,1,0,1,1,1,1,0,1,,,ID3
+140,Status Klemme 15 über CAN,stTerm15,402391163,402522235,34,690,1,1,0,1,7|1@0,uint,1,0,0,1,1,1,1,1,,,ID3
+140,Batterieladezustand,rSocBat2,402391163,402522235,34,652,1,1,0,8,7|8@0,uint,2.5,0,1,1,1,1,1,1,,,ID3
+51,Fahrzeuggeschwindigkeit,vVeh3,402391164,402522236,34,62477,1,1,0,8,7|8@0,uint,1,0,1,0,0,1,0,0,,,ID3
+51,Drehmoment: Sollwert-Actual_mechanical_torque_commanded_value,tqEmMechSet,402391164,402522236,34,22753,1,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Kühlmitteltemperatur im Zulauf-Electric_drive_control_unit_inflow_coolant_temperature,tClntEdcIn,402391164,402522236,34,20398,5,4,0,32,7|32@0,float32,1,0,1,1,1,1,1,1,,,ID3
+51,E-Maschine Stator-Temperatur-Stator_temperature,tEmStator,402391164,402522236,34,18034,5,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Leistungselektronik IGBT-Modul Temperatur Phase U-Temperature_IGBT_phase_U,tIgbtU,402391164,402522236,34,18020,5,4,8,32,15|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Leistungselektronik IGBT-Modul Temperatur Phase V-Temperature_IGBT_phase_V,tIgbtV,402391164,402522236,34,18019,5,4,8,32,15|32@0,float32,1,0,1,0,0,1,0,1,,,ID3
+51,Leistungselektronik IGBT-Modul Temperatur Phase W-Temperature_IGBT_phase_W,tIgbtW,402391164,402522236,34,18018,5,4,8,32,15|32@0,float32,1,0,1,0,0,1,0,1,,,ID3
+51,Leistungselektronik interne Spannungsversorgung IGBT-Internal_supply_voltage_inverter_IGBT,uIgbtSply,402391164,402522236,34,18010,2,2,0,16,7|16@0,uint,147.725,0,1,0,0,1,0,1,,,ID3
+51,Drehzahl der E-Maschine: Istwert-Absolut_value_RPM_e-machine,nEm2,402391164,402522236,34,18009,1,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Drehzahl des Fahrmotor für Elektroantrieb-Electric_drive_motor_speed,nEmTrac,402391164,402522236,34,16584,1,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Aussentemperatur über Can-Ambient_air_temperature_from_CAN,tAmbCan,402391164,402522236,34,16125,5,4,8,32,15|32@0,float32,1,0,1,0,0,1,0,1,,,ID3
+51,Phasenstrom Phase W-Phase_W_current,curPhaseW,402391164,402522236,34,16123,1,4,0,32,7|32@0,float32,1,0,1,0,0,1,1,1,,,ID3
+51,Phasenstrom Phase V-Phase_V_current,curPhaseV,402391164,402522236,34,16122,1,4,0,32,7|32@0,float32,1,0,1,0,0,1,1,1,,,ID3
+51,Phasenstrom Phase U-Phase_U_current,curPhaseU,402391164,402522236,34,16121,1,4,0,32,7|32@0,float32,1,0,1,0,0,1,1,1,,,ID3
+51,Min. Drehmoment elektrische Maschine-Actual_possible_minimum_torque,tqEmMin,402391164,402522236,34,16107,5,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Max. Drehmoment elektrische Maschine-Actual_possible_maximum_torque,tqEmMax,402391164,402522236,34,16106,5,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Drehmoment: Istwert-Actual_mechanical_torque_calculated,tqEmMechCalc,402391164,402522236,34,16105,1,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Minimalgrenze Zwischenkreisstrom-Generator_mode_maximum_current,curDcLinkMin,402391164,402522236,34,16104,5,4,0,32,7|32@0,float32,1,0,1,1,1,1,1,1,,,ID3
+51,Maximalgrenze Zwischenkreisstrom-Engine_mode_maximum_current,curDcLinkMax,402391164,402522236,34,16103,5,4,0,32,7|32@0,float32,1,0,1,1,1,1,1,1,,,ID3
+51,Zwischenkreisstrom-DC_link_current,curDcLink,402391164,402522236,34,16024,1,4,0,32,7|32@0,float32,1,0,1,1,1,1,1,1,,,ID3
+51,Zwischenkreisspannung-DC_link_voltage,uDcLink,402391164,402522236,34,16019,1,4,0,32,7|32@0,float32,1,0,1,1,1,1,1,1,,,ID3
+51,Rotortemperatur geschätzt-Rotor_temperatur_modelled,tEmRotor,402391164,402522236,34,11468,5,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Fahrzeuggeschwindigkeit-Vehicle speed,vVeh2,402391164,402522236,34,11030,1,2,0,16,7|16@0,uint,1,0,1,0,0,1,0,0,,,ID3
+51,Inverter_alternating_current_I2t_counter_2,numInvCurCnt2,402391164,402522236,34,4163,1,4,0,32,7|32@0,float32,1,0,0,0,0,1,0,0,,,ID3
+51,Inverter_power_loss_phase_w,pwrInvLossW,402391164,402522236,34,4162,1,4,0,32,7|32@0,float32,1,0,1,0,0,1,1,1,,,ID3
+51,Inverter_power_loss_phase_v,pwrInvLossV,402391164,402522236,34,4161,1,4,0,32,7|32@0,float32,1,0,1,0,0,1,1,1,,,ID3
+51,Inverter_power_loss_phase_u,pwrInvLossU,402391164,402522236,34,4160,1,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Inverter_alternating_current_I2t_counter_1,numInvCurCnt1,402391164,402522236,34,4158,1,4,0,32,7|32@0,float32,1,0,0,0,0,1,0,0,,,ID3
+51,Inverter_active_discharge_request,stInvDchrgReq,402391164,402522236,34,4142,1,1,0,8,7|8@0,uint,1,0,0,0,0,1,1,0,,,ID3
+51,Inverter_active_discharge_state,stInvDchrg,402391164,402522236,34,4138,1,1,0,8,7|8@0,uint,1,0,0,0,0,1,0,0,,,ID3
+51,Inverter_coolant_flow_estimated,mfClnt,402391164,402522236,34,4121,1,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,DMCM_stator_voltage_q_direction_commanded_value,uEmStatQDes,402391164,402522236,34,4106,1,4,0,32,7|32@0,float32,1,0,1,0,0,1,1,1,,,ID3
+51,DMCM_stator_voltage_d_direction_commanded_value,uEmStatDDes,402391164,402522236,34,4105,1,4,0,32,7|32@0,float32,1,0,1,0,0,1,1,1,,,ID3
+51,DMCM_stator_voltage_q_direction_actual_value,uEmStatQ,402391164,402522236,34,4104,1,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,DMCM_stator_voltage_d_direction_actual_value,uEmStatD,402391164,402522236,34,4103,1,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Inverter_current_in_q-direction_commanded_value,curInvQDes,402391164,402522236,34,4102,1,4,0,32,7|32@0,float32,1,0,1,0,0,1,1,1,,,ID3
+51,Inverter_current_in_d-direction_commanded_value,curInvDDes,402391164,402522236,34,4101,1,4,0,32,7|32@0,float32,1,0,1,0,0,1,1,1,,,ID3
+51,Inverter_current_in_q-direction_actual_value,curInvQ,402391164,402522236,34,4100,1,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Inverter_current_in_d-direction_actual_value,curInvD,402391164,402522236,34,4099,1,4,0,32,7|32@0,float32,1,0,1,1,0,1,1,1,,,ID3
+51,Fahrzeug-Kilometerstand aktuell-Current_vehicle_mileage,sVeh1,402391164,402522236,34,2157,2,4,0,32,7|32@0,uint,1,0,1,0,0,1,0,0,,,ID3
+51,Status der Leistungsreduzierung-Power_reduction_active,stPwrRed1,402391164,402522236,34,2051,2,1,0,8,7|8@0,uint,1,0,0,1,0,1,1,1,,,ID3
+51,Berechnetes Istmoment elektrische Maschine-Torque calculated from the measured currents,tqEmCalc,402391164,402522236,34,776,1,4,0,32,7|32@0,float32,1,0,1,0,0,1,1,1,,,ID3

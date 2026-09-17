@@ -1,0 +1,14 @@
+name: "Fast Test for ignition and logging"
+description: "The ignition turns off, then turns on briefly, and then turns off again."
+
+sequence:
+  - state: PARKED_OFF
+    duration: 10.0
+
+  - state: PARKED_IGN_ON
+    duration: 60.0
+
+  - state: PARKED_OFF
+    duration: 60.0
+
+loop: false

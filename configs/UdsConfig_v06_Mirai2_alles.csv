@@ -1,0 +1,139 @@
+strEcu,strLabLong,strLab,numIdTstr,numIdGtwy,numSid,numDid,numDwnSamp,numBytes,numStrtBit,numLenBit,strDbc,strType,numFac,numOfs,stIntp,stUse1,stUse2,stUse3,stUse4,stRvt,numMtyLvl,strCmnt,strtByte,lenByte,strName
+Hybrid Control Unit,Absolute Value Time (Day) [Day],numTiDay,2002,2010,34,265,,6,16,8,23|8@0,uint,1,0,0,1,1,,,,65535,,,,Mirai2
+Hybrid Control Unit,Absolute Value Time (Hour) [Hour],numTiHr,2002,2010,34,265,,6,24,8,31|8@0,uint,1,0,0,1,1,,,,65535,,,,Mirai2
+Hybrid Control Unit,Absolute Value Time (Minute) [Minute],numTiMin,2002,2010,34,265,,6,32,8,39|8@0,uint,1,0,0,1,1,,,,65535,,,,Mirai2
+Hybrid Control Unit,Absolute Value Time (Month) [Month],numTiMth,2002,2010,34,265,,6,8,8,15|8@0,uint,1,0,0,1,1,,,,65535,,,,Mirai2
+Hybrid Control Unit,Absolute Value Time (Second) [Second],numTiSec,2002,2010,34,265,,6,40,8,47|8@0,uint,1,0,0,1,1,,,,"1,3827",,,,Mirai2
+Hybrid Control Unit,Absolute Value Time (Year) [Year],numTiYr,2002,2010,34,265,,6,0,8,7|8@0,uint,1,0,0,1,1,,,,65535,,,,Mirai2
+Hybrid Control Unit,Accelerator Position [%],rApp,2002,2010,34,4192,,1,0,8,7|8@0,uint,2,0,1,1,1,,,1,0,,0,1,Mirai2
+Fuel Cell,Air Pressure Regulating Valve DC Motor Current (Open Side) [A],curAirPresRegVlvDcMot,2001,2009,34,6167,,2,0,16,7|16@0,uint,262.1544,125.0036,1,1,,,,,"2,8964",,,,Mirai2
+Fuel Cell,Air Pressure Regulating Valve FAIL Signal Status (Close Side),stAirPresRegVlvClsd,2001,2009,34,6165,,2,13,1,10|1@0,uint,1,0,0,1,,,,,"2,5015",,,,Mirai2
+Fuel Cell,Air Pressure Regulating Valve FAIL Signal Status (Open Side),stAirPresRegVlvOpn,2001,2009,34,6165,,2,12,1,11|1@0,uint,1,0,0,1,,,,,"2,6218",,,,Mirai2
+Fuel Cell,Air Pressure Regulating Valve Motor Duty [%],dcAirPresRegVlvMot,2001,2009,34,6168,,1,0,8,7|8@0,uint,2,0,1,1,,,,,"2,656",,,,Mirai2
+Fuel Cell,Air Pressure Regulating Valve Position [deg],rAirPresRegVlvPos,2001,2009,34,6170,,2,2,12,5|12@0,uint,32.768,0,1,1,1,,,,"3,1094",,,,Mirai2
+Fuel Cell,Air Pressure Regulating Valve Position Sensor Voltage [V],uAirPresRegVlvSens,2001,2009,34,6169,,2,0,9,7|9@0,uint,102.4,0,1,1,1,,,,"2,6022",,,,Mirai2
+Fuel Cell,Air Sealing Valve DC Motor Current (Open Side) [A],curAirSealVlvDcMot,2001,2009,34,6161,,2,0,16,7|16@0,uint,261.9,125.1,1,1,,,,,"2,0275",,,,Mirai2
+Fuel Cell,Air Sealing Valve FAIL Signal Status (Close Side),stAirSealVlvClsd,2001,2009,34,6159,,2,13,1,10|1@0,uint,1,0,0,1,,,,0,,,,,Mirai2
+Fuel Cell,Air Sealing Valve FAIL Signal Status (Open Side),stAirSealVlvOpn,2001,2009,34,6159,,2,12,1,11|1@0,uint,1,0,0,1,,,,0,,,,,Mirai2
+Fuel Cell,Air Sealing Valve Position [deg],rAirSealVlvPos,2001,2009,34,6164,,2,2,12,5|12@0,uint,32.768,0,1,1,1,,,1,"0,001",,0,2,Mirai2
+Fuel Cell,Air Sealing Valve Position Sensor Voltage [V],uAirSealVlvSens,2001,2009,34,6163,,2,0,9,7|9@0,uint,102.4,0,1,1,1,,,,"2,3735",,,,Mirai2
+Fuel Cell,Air Shunt Valve DC Motor Current (Open Side) [A],curAirShntVlvDcMot,2001,2009,34,6155,,2,0,16,7|16@0,uint,262.8378,124.6728,1,1,,,,,"2,2922",,,,Mirai2
+Fuel Cell,Air Shunt Valve FAIL Signal Status (Close Side),stAirShntVlvClsd,2001,2009,34,6153,,2,13,1,10|1@0,uint,1,0,0,1,,,,,"2,6836",,,,Mirai2
+Fuel Cell,Air Shunt Valve FAIL Signal Status (Open Side),stAirShntVlvOpn,2001,2009,34,6153,,2,12,1,11|1@0,uint,1,0,0,1,,,,0,"8,174",,,,Mirai2
+Fuel Cell,Air Shunt Valve Motor Duty [%],dcAirShntVlvMot,2001,2009,34,6156,,1,0,8,7|8@0,uint,2,0,1,1,,,,,"2,5401",,,,Mirai2
+Fuel Cell,Air Shunt Valve Position [deg],rAirShntVlvPos,2001,2009,34,6158,,2,2,12,5|12@0,uint,32.768,0,1,1,1,,,1,"2,308",,,,Mirai2
+Fuel Cell,Air Shunt Valve Position Sensor Voltage [V],uAirShntVlvSens,2001,2009,34,6157,,2,0,9,7|9@0,uint,102.4,0,1,1,1,,,,"2,6643",,,,Mirai2
+Fuel Cell,Air Valve Supply Voltage [V],uAirVlvSply,2001,2009,34,6152,,2,4,8,3|8@0,uint,51.2,0,1,1,,,,,"2,4383",,,,Mirai2
+High Voltage Battery,Ambient Temperature [°C],tAmb,1863,1871,34,8006,,1,0,8,7|8@0,uint,1,40,1,1,1,,,,65535,,,,Mirai2
+Hybrid Control Unit,Atmospheric Pressure (Filtered Value) [kPa],pAmbFilt,2002,2010,34,6930,,6,40,8,47|8@0,uint,100,-97.2798,1,1,,,,,"2,9325",,,,Mirai2
+Hybrid Control Unit,Atmospheric Pressure [kPa],pAmb,2002,2010,34,6930,,6,24,8,31|8@0,uint,100,-97.2798,1,1,,,,,"1,8031",,,,Mirai2
+High Voltage Battery,Boost Ratio [%],rBstRat,1863,1871,34,4259,,2,0,16,7|16@0,uint,2.56,0,1,1,1,,,,"2,1437",,,,Mirai2
+Hybrid Control Unit,Boosting Converter Temperature (Upper) [°C],tBstConvUpr,2002,2010,34,6917,,136,192,8,199|8@0,uint,1,40,1,1,,,,,"1,6617",,,,Mirai2
+Hybrid Control Unit,DC/DC Converter Output Voltage Change Signal [V],duDcDcOut,2002,2010,34,6917,,136,240,8,247|8@0,uint,51,0.01,1,1,,,,,"0,12814",,,,Mirai2
+Hybrid Control Unit,Distance from DTC Cleared [km],lDistDtcClrd,2002,2010,34,7985,,2,0,16,7|16@0,uint,1,0,1,1,,,,,65535,,,,Mirai2
+Hybrid Control Unit,Elapsed Time [ms],tiElpsd,2002,2010,34,258,,7,24,24,31|24@0,uint,1,0,1,1,,,,,"2,2083",,,,Mirai2
+Hybrid Control Unit,Estimate Gradient of Road Surface (Right and ) - left [deg],angRoadSurf,2002,2010,34,6917,,136,776,8,783|8@0,uint,5,25.6,1,1,,,,,"2,4643",,,,Mirai2
+Fuel Cell,Exhaust Drainage Valve Status,stExhDrainVlv,2001,2009,34,6148,,2,15,1,8|1@0,uint,1,0,0,1,1,,,,"2,8056",,,,Mirai2
+Fuel Cell,Exhaust Drainage Valve Terminal Voltage [V],uExhDrainVlv,2001,2009,34,6151,,2,0,9,7|9@0,uint,100,0.04,1,1,,,,,"2,6948",,,,Mirai2
+Fuel Cell,FC Air Compressor Motor Temperature Sensor Voltage [V],uFcAirCmprMotTempSens,2001,2009,34,6150,,2,8,8,15|8@0,uint,6400,-4.14,1,1,,,,,"2,8907",,,,Mirai2
+Fuel Cell Converter,FC Converter Output Voltage (Filtered Value) [V],uFcConvOutFlit,2003,2011,34,5639,,2,0,16,7|16@0,uint,10,3276.8,1,1,1,,,,"3,3783",,,,Mirai2
+Fuel Cell Converter,FC Converter Output Voltage [V],uFcConvOut,2003,2011,34,5641,,2,0,16,7|16@0,uint,10,0,1,1,1,,,,"3,4384",,,,Mirai2
+Fuel Cell Converter,FC Current (Filtered Value) [A],curFcFilt,2003,2011,34,5699,,2,0,16,7|16@0,uint,16.384,0,1,1,1,,,,"2,9854",,,,Mirai2
+Fuel Cell Converter,FC Current [A],curFc,2003,2011,34,5643,,2,0,16,7|16@0,uint,10,3276.8,1,1,1,,,,"3,0231",,,,Mirai2
+Fuel Cell Converter,FC Voltage (Filtered Value) [V],uFcFilt,2003,2011,34,5638,,2,0,16,7|16@0,uint,10,3276.8,1,1,1,,,,"1,6051",,,,Mirai2
+Fuel Cell Converter,FC Voltage [V],uFc,2003,2011,34,5640,,2,0,16,7|16@0,uint,10,0,1,1,1,,,,"3,1084",,,,Mirai2
+Hybrid Control Unit,Generate Torque (Request from Driver Support System) [Nm],tqGenReq,2002,2010,34,4198,,3,0,16,7|16@0,uint,8,4096,1,1,1,,,,"3,228",,,,Mirai2
+High Voltage Battery,Generator Carrier Frequency,fGen,1863,1871,34,4256,,5,32,8,39|8@0,uint,1,0,1,1,1,,,,"1,995",,,,Mirai2
+High Voltage Battery,Generator Revolution [rpm],nGen,1863,1871,34,4256,,5,0,16,7|16@0,uint,1,32768,1,1,1,,,,"1,4534",,,,Mirai2
+Hybrid Control Unit,GL1 GX Sensor Signal [m/s²],uGxSens,2002,2010,34,6917,,136,408,16,415|16@0,uint,2428.5714,13.1135,1,1,,,,,"1,9953",,,,Mirai2
+Hybrid Control Unit,GL2 GY Sensor Signal [m/s²],uGySens,2002,2010,34,6917,,136,424,16,431|16@0,uint,2428.5714,13.1135,1,1,,,,,"1,9953",,,,Mirai2
+Fuel Cell,High-Range Hydrogen Pressure [MPa],pH2HighRng,2001,2009,34,6178,,2,0,16,7|16@0,uint,163.84,200,1,1,1,,,,"1,5428",,,,Mirai2
+Hybrid Control Unit,HV/EV Activate Condition,curHvCtrl,2002,2010,34,7038,,2,0,16,7|16@0,uint,10,3276.8,1,1,,,,,"0,58024",,,,Mirai2
+Fuel Cell,Hydrogen Injector 1 Injection,stH2Inj1Inj,2001,2009,34,6175,,2,15,1,8|1@0,uint,1,0,0,1,1,,,,"2,6684",,,,Mirai2
+Fuel Cell,Hydrogen Injector 1 Terminal Status,stH2Inj1Term,2001,2009,34,6175,,2,14,1,9|1@0,uint,1,0,0,1,,,,"0,5",,,,,Mirai2
+Fuel Cell,Hydrogen Injector 2 Injection,stH2Inj2Inj,2001,2009,34,6176,,2,15,1,8|1@0,uint,1,0,0,1,1,,,,"2,389",,,,Mirai2
+Fuel Cell,Hydrogen Injector 2 Terminal Status,stH2Inj2Term,2001,2009,34,6176,,2,14,1,9|1@0,uint,1,0,0,1,,,,,"2,4147",,,,Mirai2
+Fuel Cell,Hydrogen Injector 3 Injection,stH2Inj3Inj,2001,2009,34,6177,,2,15,1,8|1@0,uint,1,0,0,1,1,,,,"2,6085",,,,Mirai2
+Fuel Cell,Hydrogen Injector 3 Terminal Status,stH2Inj3Term,2001,2009,34,6177,,2,14,1,9|1@0,uint,1,0,0,1,,,,,"2,0127",,,,Mirai2
+Fuel Cell,Ignition-ON Elapsed Time [ms] - DO NOT USE,tiIgnOnElpsd,2001,2009,34,258,,7,24,24,31|24@0,uint,1,0,1,1,,,,,"2,1805",,,,Mirai2
+Hybrid Control Unit,Intake Air Temperature (Filtered Value) [°C],tAirIntkFilt,2002,2010,34,6934,,4,16,16,23|16@0,uint,256,40,1,1,1,,,,"1,1053",,,,Mirai2
+Hybrid Control Unit,Intake Air Temperature Sensor Voltage [V],uAirIntkSens,2002,2010,34,6934,,4,0,16,7|16@0,uint,14400,-0.21942,1,1,,,,,"1,0638",,,,Mirai2
+Hybrid Control Unit,Inverter Water Pump Revolution [rpm],nInvPmp,2002,2010,34,4153,,4,16,16,23|16@0,uint,1,0,1,1,1,,,,"2,4523",,,,Mirai2
+Fuel Cell,Low-Range Hydrogen Pressure [kPa],pH2LowRng,2001,2009,34,6180,,2,0,16,7|16@0,uint,100,0,1,1,1,,,,"2,7555",,,,Mirai2
+Fuel Cell,Low-Range Hydrogen Pressure Sensor Voltage [V],uH2LowRngSens,2001,2009,34,6147,,2,0,10,7|10@0,uint,200,0.04,1,1,,,,,"1,8683",,,,Mirai2
+Hybrid Control Unit,Mass Air Flow (Filtered Value) [L/min],mfAirFilt,2002,2010,34,6935,,5,24,16,31|16@0,uint,1.6384,0,1,1,1,,,,"1,913",,,,Mirai2
+Hybrid Control Unit,Mass Air Flow Sensor Frequency [kHz],fMfAir,2002,2010,34,6935,,5,0,8,7|8@0,uint,20,0,1,1,,,,,"1,7375",,,,Mirai2
+Hybrid Control Unit,Master Cylinder Control Torque [Nm],tqMstrCyl,2002,2010,34,4199,,2,0,16,7|16@0,uint,7.9999,4096,1,1,,,,,"2,1893",,,,Mirai2
+Hybrid Control Unit,Maximum Vehicle Speed [km/h],vVehMax,2002,2010,34,7023,,1,0,8,7|8@0,uint,1,0,1,1,,,,1,,,,,Mirai2
+Fuel Cell,Medium-Range Hydrogen Pressure [kPa],pH2MedRng,2001,2009,34,6179,,2,0,16,7|16@0,uint,10,3276.8,1,1,1,,,,"2,4316",,,,Mirai2
+Fuel Cell,Medium-Range Hydrogen Pressure Sensor Voltage [V],uH2MedRngSens,2001,2009,34,6146,,2,0,9,7|9@0,uint,100,0.059499,1,1,,,,,"2,0177",,,,Mirai2
+Hybrid Control Unit,Motor Carrier Frequency,fMot,2002,2010,34,4257,,6,32,8,39|8@0,uint,1,0,1,1,,,,,65535,,,,Mirai2
+Hybrid Control Unit,Motor Inverter Maximum Temperature [°C],tMotInvMax,2002,2010,34,4261,,3,16,8,23|8@0,uint,1,40,1,1,,,,,65535,,,,Mirai2
+Hybrid Control Unit,Motor Inverter Temperature [°C],tMotInv,2002,2010,34,4261,,3,0,8,7|8@0,uint,1,40,1,1,1,,,,"2,9175",,,,Mirai2
+Hybrid Control Unit,Motor Inverter Temperature just after Ignition ON [°C],tMotInvIgnOn,2002,2010,34,4261,,3,8,8,15|8@0,uint,1,40,1,1,,,,,65535,,,,Mirai2
+Hybrid Control Unit,Motor Maximum Temperature [°C],tMotMax,2002,2010,34,4155,,5,32,8,39|8@0,uint,1,40,1,1,1,,,,65535,,,,Mirai2
+Hybrid Control Unit,Motor Operation Status,stMotOp,2002,2010,34,6991,,1,0,8,7|8@0,uint,1,0,0,1,,,,,65535,,,,Mirai2
+Hybrid Control Unit,Motor Revolution [rpm],nMot,2002,2010,34,4257,,6,0,16,7|16@0,uint,1,32768,1,1,1,,,,"2,234",,,,Mirai2
+Hybrid Control Unit,Motor Temperature [°C],tMot,2002,2010,34,4155,,5,16,8,23|8@0,uint,1,40,1,1,1,,,,"2,2954",,,,Mirai2
+Hybrid Control Unit,Motor Temperature just after Ignition ON [°C],tMotIgnOn,2002,2010,34,4155,,5,24,8,31|8@0,uint,1,40,1,1,,,,,65535,,,,Mirai2
+Hybrid Control Unit,Motor Torque Estimate Value [Nm],tqMotEstm,2002,2010,34,6988,,2,0,16,7|16@0,uint,8,4096,1,1,1,,,,"3,1635",,,,Mirai2
+Fuel Cell Converter,Phase U Current (Offset Value) [A],curUOfs,2003,2011,34,5642,,2,0,16,7|16@0,uint,100,327.68,1,1,1,,,,"3,3039",,,,Mirai2
+Fuel Cell Converter,Phase U Current [A],curU,2003,2011,34,5653,,2,0,16,7|16@0,uint,100,327.68,1,1,1,,,,"3,2323",,,,Mirai2
+Fuel Cell Converter,Phase U Current AD Value [V],curUAd,2003,2011,34,5654,,2,0,12,7|12@0,uint,819.2,0,1,1,,,,,"2,6841",,,,Mirai2
+Fuel Cell Converter,Phase U Duty [%],dcU,2003,2011,34,5648,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"3,3135",,,,Mirai2
+Fuel Cell Converter,Phase U Temperature 1 (Filtered Value) [°C],tU1Filt,2003,2011,34,5655,,2,0,16,7|16@0,uint,256,40,1,1,,,,,"2,9209",,,,Mirai2
+Fuel Cell Converter,Phase U Temperature 1 [°C],tU1,2003,2011,34,5649,,2,0,16,7|16@0,uint,256,40,1,1,1,,,,"3,1474",,,,Mirai2
+Fuel Cell Converter,Phase U Temperature 1 Duty [%],dcTU1,2003,2011,34,5651,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"2,9538",,,,Mirai2
+Fuel Cell Converter,Phase U Temperature 2 [°C],tU2,2003,2011,34,5650,,2,0,16,7|16@0,uint,256,40,1,1,1,,,,"2,9859",,,,Mirai2
+Fuel Cell Converter,Phase U Temperature 2 Duty [%],dcTU2,2003,2011,34,5652,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"2,5503",,,,Mirai2
+Fuel Cell Converter,Phase V Current (Offset Value) [A],curVOfs,2003,2011,34,5700,,2,0,16,7|16@0,uint,100,327.68,1,1,1,,,,"3,1025",,,,Mirai2
+Fuel Cell Converter,Phase V Current [A],curV,2003,2011,34,5666,,2,0,16,7|16@0,uint,100,327.68,1,1,1,,,,"3,0595",,,,Mirai2
+Fuel Cell Converter,Phase V Current AD Value [V],curVAd,2003,2011,34,5667,,2,0,12,7|12@0,uint,819.2,0,1,1,,,,,"2,3395",,,,Mirai2
+Fuel Cell Converter,Phase V Duty [%],dcV,2003,2011,34,5661,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"3,0039",,,,Mirai2
+Fuel Cell Converter,Phase V Temperature 1 (Filtered Value) [°C],tV1Filt,2003,2011,34,5668,,2,0,16,7|16@0,uint,256,40,1,1,,,,,"2,9504",,,,Mirai2
+Fuel Cell Converter,Phase V Temperature 1 [°C],tV1,2003,2011,34,5662,,2,0,16,7|16@0,uint,256,40,1,1,1,,,,"2,8163",,,,Mirai2
+Fuel Cell Converter,Phase V Temperature 1 Duty [%],dcTV1,2003,2011,34,5664,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"3,4025",,,,Mirai2
+Fuel Cell Converter,Phase V Temperature 2 [°C],tV2,2003,2011,34,5663,,2,0,16,7|16@0,uint,256,40,1,1,1,,,,"2,9117",,,,Mirai2
+Fuel Cell Converter,Phase V Temperature 2 Duty [%],dcTV2,2003,2011,34,5665,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"2,9561",,,,Mirai2
+Fuel Cell Converter,Phase W Current (Offset Value) [A],curWOfs,2003,2011,34,5701,,2,0,16,7|16@0,uint,100,327.68,1,1,1,,,,"2,4433",,,,Mirai2
+Fuel Cell Converter,Phase W Current [A],curW,2003,2011,34,5679,,2,0,16,7|16@0,uint,100,327.68,1,1,1,,,,"3,5864",,,,Mirai2
+Fuel Cell Converter,Phase W Current AD Value [V],curWAd,2003,2011,34,5680,,2,0,12,7|12@0,uint,819.2,0,1,1,,,,,"2,5905",,,,Mirai2
+Fuel Cell Converter,Phase W Duty [%],dcW,2003,2011,34,5674,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"2,8895",,,,Mirai2
+Fuel Cell Converter,Phase W Temperature 1 (Filtered Value) [°C],tW1Filt,2003,2011,34,5681,,2,0,16,7|16@0,uint,256,40,1,1,,,,,"2,789",,,,Mirai2
+Fuel Cell Converter,Phase W Temperature 1 [°C],tW1,2003,2011,34,5675,,2,0,16,7|16@0,uint,256,40,1,1,1,,,,"1,8918",,,,Mirai2
+Fuel Cell Converter,Phase W Temperature 1 Duty [%],dcTW1,2003,2011,34,5677,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"2,4295",,,,Mirai2
+Fuel Cell Converter,Phase W Temperature 2 [°C],tW2,2003,2011,34,5676,,2,0,16,7|16@0,uint,256,40,1,1,1,,,,"2,7835",,,,Mirai2
+Fuel Cell Converter,Phase W Temperature 2 Duty [%],dcTW2,2003,2011,34,5678,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"2,4633",,,,Mirai2
+Fuel Cell Converter,Phase X Current (Offset Value) [A],curXOfs,2003,2011,34,5702,,2,0,16,7|16@0,uint,100,327.68,1,1,1,,,,"2,3301",,,,Mirai2
+Fuel Cell Converter,Phase X Current [A],curX,2003,2011,34,5692,,2,0,16,7|16@0,uint,100,327.68,1,1,1,,,,"2,3504",,,,Mirai2
+Fuel Cell Converter,Phase X Current AD Value [V],curXAd,2003,2011,34,5693,,2,0,12,7|12@0,uint,819.2,0,1,1,,,,,"2,5667",,,,Mirai2
+Fuel Cell Converter,Phase X Duty [%],dcX,2003,2011,34,5687,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,1,"0,001",,,,Mirai2
+Fuel Cell Converter,Phase X Temperature 1 (Filtered Value) [°C],tX1Filt,2003,2011,34,5694,,2,0,16,7|16@0,uint,256,40,1,1,,,,,"2,5686",,,,Mirai2
+Fuel Cell Converter,Phase X Temperature 1 [°C],tX1,2003,2011,34,5688,,2,0,16,7|16@0,uint,256,40,1,1,1,,,,"2,7729",,,,Mirai2
+Fuel Cell Converter,Phase X Temperature 1 Duty [%],dcTX1,2003,2011,34,5690,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"2,6927",,,,Mirai2
+Fuel Cell Converter,Phase X Temperature 2 [°C],tX2,2003,2011,34,5689,,2,0,16,7|16@0,uint,256,40,1,1,1,,,,"3,2222",,,,Mirai2
+Fuel Cell Converter,Phase X Temperature 2 Duty [%],dcTX2,2003,2011,34,5691,,2,0,16,7|16@0,uint,163.84,0,1,1,,,,,"3,1466",,,,Mirai2
+Fuel Cell,Radiator Rotary Valve Carrying Request (WRA1),stRadRotVlvReqA1,2001,2009,34,6181,,2,15,1,10|1@0,uint,1,0,1,1,1,,,,"2,0045",,,,Mirai2
+Fuel Cell,Radiator Rotary Valve Carrying Request (WRA2),stRadRotVlvReqA2,2001,2009,34,6181,,2,14,1,11|1@0,uint,1,0,1,1,1,,,,"2,1331",,,,Mirai2
+Fuel Cell,Radiator Rotary Valve Carrying Request (WRB1),stRadRotVlvReqB1,2001,2009,34,6181,,2,13,1,8|1@0,uint,1,0,1,1,1,,,,"2,4953",,,,Mirai2
+Fuel Cell,Radiator Rotary Valve Carrying Request (WRB2),stRadRotVlvReqB2,2001,2009,34,6181,,2,12,1,9|1@0,uint,1,0,1,1,1,,,,"2,4953",,,,Mirai2
+Fuel Cell,Radiator Rotary Valve Fail Status (WRA1),stRadRotVlvFailA1,2001,2009,34,6171,,4,0,8,7|8@0,uint,1,0,0,1,,,,,"2,0283",,,,Mirai2
+Fuel Cell,Radiator Rotary Valve Fail Status (WRA2),stRadRotVlvFailA2,2001,2009,34,6171,,4,8,8,15|8@0,uint,1,0,0,1,,,,,"2,699",,,,Mirai2
+Fuel Cell,Radiator Rotary Valve Fail Status (WRB1),stRadRotVlvFailB1,2001,2009,34,6171,,4,16,8,23|8@0,uint,1,0,0,1,,,,,"2,0283",,,,Mirai2
+Fuel Cell,Radiator Rotary Valve Fail Status (WRB2),stRadRotVlvFailB2,2001,2009,34,6171,,4,24,8,31|8@0,uint,1,0,0,1,,,,,"2,5003",,,,Mirai2
+High Voltage Battery,Smoothed Value of BATT Voltage [V],uBatSmth,1863,1871,34,8002,,2,0,16,7|16@0,uint,1000,0,1,1,1,,,,"2,4422",,,,Mirai2
+Hybrid Control Unit,Steering Angle Signal [deg],angSteer,2002,2010,34,6917,,136,392,16,399|16@0,uint,10,3276.8,1,1,1,,,,"2,1366",,,,Mirai2
+Hybrid Control Unit,Stop Light Switch,stStopLght,2002,2010,34,4163,,2,14,1,9|1@0,uint,1,0,1,1,1,,,,"3,714",,,,Mirai2
+Fuel Cell Converter,Target FC Current (Hybrid/EV) [A],curFcSet,2003,2011,34,5685,,2,0,16,7|16@0,uint,16.384,0,1,1,1,,,,"2,5998",,,,Mirai2
+High Voltage Battery,Target Generator Torque [Nm],tqGenSet,1863,1871,34,4256,,5,16,12,23|12@0,uint,0.5,4096,1,1,1,,,,"2,4368",,,,Mirai2
+Hybrid Control Unit,Target Mass Air Flow [L/min],mfAirSet,2002,2010,34,6935,,5,8,16,15|16@0,uint,1.6384,0,1,1,1,,,,"1,9464",,,,Mirai2
+Hybrid Control Unit,Target Motor Torque [Nm],tqMotSet,2002,2010,34,4257,,6,16,16,23|16@0,uint,8,4096,1,1,1,,,,"2,1544",,,,Mirai2
+Hybrid Control Unit,Target Propeller Shaft Torque (Driver Support System Last Time Value) [Nm],tqPropShaftSet,2002,2010,34,7043,,2,0,16,7|16@0,uint,8,4096,1,1,1,,,,"2,5938",,,,Mirai2
+Hybrid Control Unit,Total Distance Traveled,lDistTot,2002,2010,34,259,,4,8,24,15|24@0,uint,1,0.9982,1,1,,,,,,,,,Mirai2
+Fuel Cell Converter,Total Voltage [V],uTot,2003,2011,34,5715,,2,0,16,7|16@0,uint,64,0,1,1,1,,,,"0,22271",,,,Mirai2
+High Voltage Battery,Vehicle Speed [km/h],vVeh,1863,1871,34,7949,,1,0,8,7|8@0,uint,1,0,1,1,1,,,,"0,79498",,,,Mirai2
+Fuel Cell Converter,VH Voltage [V],uVh,2003,2011,34,5714,,2,0,16,7|16@0,uint,64,0,1,1,1,,,,"2,9793",,,,Mirai2
+High Voltage Battery,VH-Voltage after Boosting [V],uBoostAfter,1863,1871,34,4272,,4,16,16,23|16@0,uint,2,0,1,1,1,,,,"2,0863",,,,Mirai2
+High Voltage Battery,VL-Voltage before Boosting [V],uBoostBefore,1863,1871,34,4272,,4,0,16,7|16@0,uint,2,0,1,1,1,,,,"0,58307",,,,Mirai2
+Hybrid Control Unit,Yaw Rate Value [deg/s],rYaw,2002,2010,34,4243,,2,0,14,7|14@0,uint,64,128,1,1,,,,,"0,69592",,,,Mirai2
+Fuel Cell Converter,Ignition 2 Status (Line),stTerm15,2003,2011,34,4097,,2,14,1,9|1@0,uint,1,0,0,1,,,,,,,,,Mirai2

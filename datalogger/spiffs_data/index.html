@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoMessSys</title>
+    <link rel="stylesheet" href="./style.css"> 
+    <link rel="icon" href="./icon.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="title-container">
+            <img src="./icon.png" alt="" class="header-icon">
+            <h1 class="main-title">AutoMessy</h1>
+        </div>
+        <div class="status-container">
+            <p id="status-text">Website Fehler</p>
+            <div id="led-red" class="status-led led-red off"></div>
+            <div id="led-yellow" class="status-led led-yellow off"></div>
+            <div id="led-green" class="status-led led-green off"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="messung-header">
+            <h2 class="section-header">Messung</h2>
+            <button id="start-button" class="start-button">Start Logging</button>
+        </div>
+
+        <div class="card-container">
+            <button id="active-config-card" class="card card-hover">
+                <h3>Aktive UDS- Konfiguration</h3>
+                <div class="card-content">
+                    <p id="config-name"></p>
+                    <p id="config-values"></p>
+                </div>
+                <img src="edit-icon.svg" alt="✎" class="card-icon">
+            </button>
+            <div class="card">
+                <h3>Status</h3>
+                <div class="card-content">
+                    <p id="status-cycles"></p>
+                    <p id="status-timeouts"></p>
+                </div>
+            </div>
+            <button id="system-time-card" class="card card-hover">
+                <h3>Systemzeit</h3>
+                <div class="card-content">
+                    <p id="sys-time"></p>
+                </div>
+                <img src="edit-icon.svg" alt="✎" class="card-icon">
+            </button>
+        </div>
+
+        <h2 class="section-header">Speicher</h2>
+
+        <div class="storage-bar">
+            <div id="storage-bar-fill" class="fill"></div>
+            <span class="text text-black" id="storage-text">Keine Daten verfügbar</span>
+            <span class="text text-white" id="storage-text-white"></span>
+        </div>
+
+        <div class="file-section">
+            <div class="panel file-panel">
+                <div class="file-panel-header">
+                    <h3>Dateien</h3>
+                    <select id="file-type-select" class="file-type-select" aria-label="Dateityp auswählen">
+                        <!-- load options dynamically from registry -->
+                    </select>
+                </div>
+
+                <div class="table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr id="file-table-head-row">
+                                <!-- header will be filled dynamically -->
+                            </tr>
+                        </thead>
+
+                        <tbody id="file-table-body">
+                            <!-- rows will be filled dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="file-table-pagination" class="table-pagination">
+                    <!-- pagination controls will be filled dynamically -->
+                </div>
+
+                <button id="add-config-button" class="add-button" hidden>Datei hochladen</button>
+                <input type="file" id="config-file-input" accept=".csv" hidden>
+            </div>
+        </div>
+
+        <h2 class="section-header">Parametereinstellungen</h2>
+
+        <div class="card-container" id="param-card-container">
+            <!-- parameter cards will be filled dynamically -->
+        </div>
+
+        <h2 class="section-header">OTA-Update</h2>
+
+        <div class="panel ota-panel">
+            <p class="ota-info" id="ota-firmware-name">Keine Firmware-Datei ausgewählt</p>
+            <div class="ota-actions">
+                <button id="ota-select-button" class="ota-button" type="button">Firmware hochladen</button>
+                <button id="ota-start-button" class="ota-button" type="button" disabled>Update starten</button>
+            </div>
+            <input type="file" id="ota-file-input" accept=".bin" hidden>
+        </div>
+
+    </main>
+
+    <dialog id="active-config-dialog" class="modal">
+        <h3>Aktive Konfiguration wählen</h3>
+        <form id="active-config-form">
+            <select id="active-config-select" class="file-type-select" aria-label="Konfigurationsdatei auswählen"></select>
+            <div class="modal-actions">
+                <button type="button" id="active-config-cancel" class="modal-btn modal-btn-secondary">Abbrechen</button>
+                <button type="submit" class="modal-btn modal-btn-primary">Übernehmen</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="param-dialog" class="modal">
+        <h3 id="param-dialog-title"></h3>
+        <form id="param-form">
+            <div class="form-field">
+                <label id="param-form-label" for="param-input"></label>
+                <input type="number" id="param-input" class="modal-input" required>
+            </div>
+            <div class="modal-actions">
+                <button type="button" id="param-cancel" class="modal-btn modal-btn-secondary">Abbrechen</button>
+                <button type="submit" class="modal-btn modal-btn-primary">Übernehmen</button>
+            </div>
+        </form>
+    </dialog>
+</body>
+
+<script type="module" src="./index.js"></script>
+</html>

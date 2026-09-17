@@ -1,0 +1,25 @@
+@startuml
+participant Datalogger as logger #yellow
+participant Testrunner as runner #ea64e3
+participant vECU as vecu #aqua
+
+activate runner
+activate logger
+runner -> logger: flash()
+runner <- logger: HELLO\\n
+runner -> vecu: start()
+activate vecu
+runner -> logger: READY\\n
+runner -> logger: BACKEND:usb\\n
+runner -> logger: TAGS:uds,can_backend\\n
+runner -> logger: COVERAGE:1\\n
+runner <- logger: CONFIG_ACK\\n
+logger -> runner: CAN 0x7DF 3 0x22 0x2C 0x96\\n
+runner -> vecu: CAN 0x7DF 3 0x22 0x2C 0x96\\n
+vecu -> runner: CAN 0x7E8 5 0x62 0x2C 0x00 0x05\\n
+runner -> logger: CAN 0x7E8 5 0x62 0x2C 0x00 0x05\\n
+runner <- logger: Unity line "<test> PASS"
+runner <- logger: esp_gcov_dump()
+deactivate vecu
+deactivate runner
+@enduml

@@ -1,0 +1,675 @@
+:root {
+  --htw-green: #86BC26;
+  --primary-hover-color: #5abc26;
+  --led-red: #DC2626;
+  --led-yellow: #ffd500;
+  --led-green: #16A34A;
+  --background-color: #FAFBFC;
+  --secondary-color: #01377D;
+  --secondary-hover-color: rgb(1, 106, 125);
+}
+
+body {
+  margin: 0;
+  background: var(--background-color);
+  color:black;
+  font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: var(--htw-green);
+  padding: 0.5rem 1rem;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.header-icon {
+  height: 2rem;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.main-title {
+  color: #000;
+  margin: 0;
+  font-size: 1.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.status-led {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  transition:
+    background-color .2s,
+    box-shadow .2s,
+    opacity .2s;
+}
+
+.led-red {
+  background: var(--led-red);
+}
+
+.led-yellow {
+  background: var(--led-yellow);
+}
+
+.led-green {
+  background: var(--led-green);
+}
+
+.status-led.off {
+  opacity: 0.25;
+  box-shadow: none;
+}
+
+.status-led.on {
+  opacity: 1;
+}
+
+.led-red.on {
+  box-shadow: 0 0 5px #ff3030;
+}
+
+.led-yellow.on {
+  box-shadow: 0 0 10px #ffd500;
+}
+
+.led-green.on {
+  box-shadow: 0 0 10px #2ecc40;
+}
+
+.status-led.blink {
+  opacity: 1;
+  animation: led-blink 0.5s step-start infinite;
+}
+
+@keyframes led-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+main {
+  padding: 1.5rem;
+}
+
+.section-header {
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.messung-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.start-button {
+  all: unset;
+
+  width: 8rem;
+  height: 2rem;
+
+  border: 2px solid #000;
+  border-radius: 10px;
+
+  background-color: var(--secondary-color);
+  color: white;
+
+  text-align: center;
+
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-button:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.card {
+  all: unset;
+  position: relative;
+  width: 250px;
+  height: 80px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--htw-green);
+  border: 2px solid #000;
+  border-radius: 16px;
+  padding: 1rem;
+  margin: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+  transition:
+      transform .2s ease,
+      box-shadow .2s ease;
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.22);
+}
+
+.card-content {
+  margin-top: auto;
+  align-items: baseline;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.card p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.card-hint {
+  position: absolute;
+
+  right: 8px;
+  bottom: 5px;
+
+  font-size: 0.4rem;
+  color: #333;
+  font-style: italic;
+}
+
+.card-icon {
+  position: absolute;
+
+  right: 8px;
+  bottom: 5px;
+
+  width: 23px;
+}
+
+.card-container {
+  display: flex;
+  gap:20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Speicherbereich*/
+.storage-bar {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--secondary-color);
+}
+
+.text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.text-black {
+  color: black;
+  z-index: 1;
+}
+
+.text-white {
+  color: white;
+  z-index: 2;
+
+  clip-path: inset(0 100% 0 0);
+}
+
+.file-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  padding-top: 1rem;
+  gap: 1rem;
+}
+
+.panel {
+  background: var(--htw-green);
+  border: 2px solid #000;
+  border-radius: 16px;
+  padding: 1rem;
+  margin: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.file-panel {
+  width: 100%;
+}
+
+.file-panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.file-panel-header h3 {
+  margin: 0;
+}
+
+.file-type-select {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+/*Tabellen*/
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Aptos", Arial, sans-serif;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid black;
+    padding: 0.3rem;
+    text-align: left;
+}
+
+.data-table th {
+    background: var(--htw-green);
+}
+
+.data-table tbody tr:hover {
+    background: var(--primary-hover-color);
+}
+
+.data-table .empty-row {
+  text-align: center;
+  font-style: italic;
+}
+
+.data-table td .cell-value {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.table-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0px;
+    padding: 0px;
+}
+
+.table-btn-label {
+    display: none;
+}
+
+.panel h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.pagination-arrow {
+  all: unset;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+
+  border: 2px solid #000;
+  border-radius: 50%;
+
+  background-color: var(--secondary-color);
+  color: white;
+  font-size: 1.1rem;
+
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-arrow:hover:not(:disabled) {
+  background-color: var(--secondary-hover-color);
+}
+
+.pagination-arrow:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  min-width: 7rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.table-icon {
+  width: 23px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.actions-cell {
+  text-align: center;
+  width: 1%;
+  white-space: nowrap;
+}
+
+.add-button {
+  all: unset;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.4rem 1.25rem;
+  margin: 1rem auto 0;
+
+  border: 2px solid #000;
+  border-radius: 10px;
+
+  background-color: var(--secondary-color);
+  color: white;
+
+  text-align: center;
+
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-button:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.add-button[hidden] {
+  display: none;
+}
+
+.card p.hint {
+  font-size: 1rem;
+}
+
+/* OTA Update */
+
+.ota-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ota-info {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.ota-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ota-button {
+  all: unset;
+  box-sizing: border-box;
+
+  padding: 0.5rem 1.25rem;
+
+  border: 2px solid #000;
+  border-radius: 10px;
+
+  background-color: var(--secondary-color);
+  color: white;
+
+  text-align: center;
+
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ota-button:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.ota-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Dialog: aktive Konfiguration auswählen */
+
+.modal {
+  width: 320px;
+  max-width: 90vw;
+  border: 2px solid #000;
+  border-radius: 16px;
+  padding: 1.5rem;
+  background: var(--background-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal h3 {
+  margin: 0 0 1rem;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.modal select {
+  width: 100%;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.modal-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.3rem 0.5rem;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background: white;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.modal-btn {
+  all: unset;
+  box-sizing: border-box;
+  padding: 0.4rem 1rem;
+  border: 2px solid #000;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-btn-primary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.modal-btn-primary:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.modal-btn-secondary {
+  background-color: white;
+  color: black;
+}
+
+.modal-btn-secondary:hover {
+  background-color: #eee;
+}
+
+@media (max-width: 480px) {
+  .header-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-title {
+    font-size: 1.25rem;
+  }
+}
+
+/*Display table rows as cards for mobile devices*/
+@media (max-width: 640px) {
+  .table-scroll {
+    overflow-x: hidden;
+  }
+
+  .data-table thead {
+    display: none;
+  }
+
+  .data-table, .data-table tbody, .data-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .data-table tr {
+    box-sizing: border-box;
+    margin-bottom: 0.75rem;
+    border: 2px solid #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .data-table tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .data-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .data-table td:last-child {
+    border-bottom: none;
+  }
+
+  .data-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+
+  .data-table td .cell-value {
+    flex: 1;
+    min-width: 0;
+    text-align: right;
+  }
+
+  .data-table td.actions-cell {
+    padding: 0;
+    align-items: stretch;
+    /* Override the desktop-only .actions-cell rule */
+    width: auto;
+    white-space: normal;
+  }
+
+  .data-table td.actions-cell::before {
+    content: none;
+  }
+
+  .data-table td.actions-cell .table-btn {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.6rem;
+  }
+
+  .table-btn-label {
+    display: inline;
+  }
+
+  .data-table .empty-row {
+    border: none;
+  }
+}

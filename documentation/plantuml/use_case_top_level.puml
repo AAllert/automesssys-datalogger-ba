@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+
+actor "HTW-Forscher" as htw
+actor "Amateur" as amateur
+
+package Datalogger {
+  usecase "Einzelmessung" as single
+  usecase "Langzeitdatenlogging" as long
+  usecase "Live-Daten Visualisierung" as live
+}
+
+htw --> single
+htw --> long
+htw --> live
+
+amateur --> live
+amateur --> long
+
+@enduml

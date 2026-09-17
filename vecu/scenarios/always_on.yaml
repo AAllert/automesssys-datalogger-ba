@@ -1,0 +1,29 @@
+name: "The ignitions stays always off"
+description: "Szenario for Testing the web interface or other behavior, where only the logs no data are needed."
+
+sequence:
+  - state: PARKED_OFF
+    duration: 0.0
+    
+  - state: PARKED_IGN_ON
+    duration: 10.0
+
+  - state: CREEPING
+    duration: 5.0
+
+  - state: DRIVING
+    duration: 10.0
+
+  - state: HIGHWAY
+    duration: 45.0
+
+  - state: DRIVING
+    duration: 10.0
+
+  - state: CREEPING
+    duration: 60.0
+
+  - state: PARKED_IGN_ON
+    duration: 5.0
+
+loop: true

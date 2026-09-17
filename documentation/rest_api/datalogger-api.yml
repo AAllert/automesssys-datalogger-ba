@@ -1,0 +1,667 @@
+openapi: '3.0.3'
+info:
+  title: Datalogger API
+  version: '2.1'
+servers:
+  - url: http://automessy.local
+paths:
+
+  /active-uds-config:
+    get:
+      operationId: getActiveConfig
+      summary: Abfrage der aktuell genutzten Konfigurationsdatei
+      description: Gibt zurück, welche Konfigurationsdatei aktuell genutzt wird.
+      tags:
+        - configuration
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - active_config
+                properties:
+                  active_config:
+                    type: string
+                    description: Name der aktuell genutzten Konfigurationsdatei
+                    example: UdsConfig_v07_Mirai2.csv
+        '500':
+          description: Failed to get active config
+
+    put:
+      operationId: setActiveConfig
+      summary: Update der aktiven Konfigurationsdatei
+      description: Setzt eine neue aktive Konfigurationsdatei.
+      tags:
+        - configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - config_file
+              properties:
+                config_file:
+                  type: string
+                  description: Name der neuen aktiven Konfigurationsdatei
+                  example: UdsConfig_v07_Mirai2.csv
+      responses:
+        '200':
+          description: OK
+        '404': 
+          description: Die angegebene Konfigurationsdatei konnte nicht gefunden werden
+        '408':
+          description: Request Timeout
+        '500':
+          description: Failed to set active config
+
+  /time:
+    get:
+      operationId: getTime
+      summary: Abfrage der Systemzeit
+      description: Gibt die aktuelle Systemzeit zurück.
+      tags:
+        - configuration
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - timestamp
+                properties:
+                  timestamp:
+                    type: string
+                    description: Die aktuelle Systemzeit des Dataloggers als UNIX-Timestamp.
+                    example: "1736947200"
+        '408':
+          description: Request Timeout Error
+    
+    put:
+      operationId: setTime
+      summary: Aktualisierung der Systemzeit
+      description: Setzt eine neue Systemzeit für den Datalogger.
+      tags:
+        - configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - timestamp
+              properties:
+                timestamp:
+                  type: integer
+                  description: Neue Systemzeit als UNIX-Timestamp
+                  example: 1736947200
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid timestamp format
+        '408':
+          description: Request Timeout
+        '500':
+          description: Failed to set time
+
+  /can-timeout:
+    get:
+      operationId: getCanTimeout
+      summary: Abfrage des CAN-Timeouts
+      description: Fragt den aktuellen Wert für das Timeout eines CAN-Frames ab.
+      tags:
+        - configuration
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - can_timeout
+                properties:
+                  can_timeout:
+                    type: number
+                    description: Aktueller Timeout Wert für zu empfangene CAN-Frames.
+                    example: 100
+        '500':
+          description: Wert konnte nicht abgefragt werden
+    put:
+      operationId: setCanTimeout
+      summary: Überschreibt das Timeout für einen Can-Frame. 
+      description: Überschreibt das aktuell gesetzte Timeout mit dem neuen Wert. Dieser Timeoutwert gibt an, wie lange auf einen rohen, einzelnen Can-Frame gewartet wird
+      tags: 
+        - configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - can_timeout
+              properties:
+                can_timeout:
+                  type: number
+                  description: Neuer Timeoutwert in Millisekunden
+                  example: 100
+      responses:
+        '200':
+          description: OK
+        '500':
+          description: Failed to set timeout
+
+  /uds-timeout:
+    get:
+      operationId: getUdsTimeout
+      summary: Abfrage des Uds-Timeouts
+      description: Gibt das aktuelle Uds Timeout zurück.
+      tags: 
+        - configuration
+      responses:
+        '200': 
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - uds_timeout
+                properties:
+                  uds_timeout:
+                    type: number
+                    description: Aktueller Timeout Wert für zu empfangene CAN-Frames.
+                    example: 100
+        '500':
+          description: Wert konnte nicht abgefragt werden
+
+    put:
+      operationId: setUdsTimeout
+      summary: Überschreibt das Timeout für eine komplette Uds- Nachricht.
+      description: Überschreibt das aktuell gesetzte Timeout mit dem neuen Wert. Dieser Timeoutwert gibt an, wie lange auf eine komplette Uds- antwort gewartet wird, inkl. einer evtl. Isp-Tp Multiframe Session. 
+      tags:
+        - configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - uds_timeout
+              properties:
+                uds_timeout:
+                  type: number
+                  description: Neuer Timeoutwert in Millisekunden
+                  example: 100
+      responses:
+        '200':
+          description: OK
+        '500':
+          description: Failed to set timeout
+
+  /deepsleep-timeout:
+    get:
+      operationId: getDeepsleepTimeout
+      summary: Abfrage des Deepsleep-Timeouts
+      description: Fragt die Zeitspanne ab, nach der der ESP nach Inaktivität in den Deepsleep Modus wechselt.
+      tags:
+        - configuration
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - deepsleep_timeout
+                properties:
+                  deepsleep_timeout:
+                    type: number
+                    description: Aktueller Timeout Wert für das Wechseln in den Deepsleep Modus.
+                    example: 60
+        '500':
+          description: Wert konnte nicht abgefragt werden
+    
+    put:
+      operationId: setDeepsleepTimeout
+      summary: Deepsleep Timeout überschreiben
+      description: Überschreibt die Zeit, die der ESP wartet, bevor nach ausgeschalteter Zündung und keinem Verbundenen Client in den Deepsleep Modus wechselt.
+      tags: 
+        - configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - deepsleep_timeout
+              properties:
+                deepsleep_timeout:
+                  type: number
+                  description: Neuer Timeoutwert in Sekunden
+                  example: 60
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Value out of range, must be between 10 and 600.
+        '500':
+          description: Failed to set timeout
+
+  /term15-request-interval:
+    get:
+      operationId: getTerm15RequestInterval
+      summary: Abfrage des Abfrageintervals der Zündung
+      description: Fragt den aktuellen Wert für das Abfrageinterval der Zündung ab.
+      tags:
+        - configuration
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - request_interval
+                properties:
+                  request_interval:
+                    type: number
+                    description: Aktueller Timeout Wert für das Abfrageintervall.
+                    example: 1000
+        '500':
+          description: Wert konnte nicht abgefragt werden
+    put:
+      operationId: setTerm15RequestInterval
+      summary: Überschreibt das Abfrageintervall der Zündung
+      description: Bestimmt das Interval, in dem der Zündungsstatus im Zustand "wait_term15" abgefragt werden soll.
+      tags:
+        - configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - request_interval
+              properties:
+                request_interval:
+                  type: number
+                  description: Neues Abfrageintervall in Millisekunden
+                  example: 1000
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Value out of range, must be between 100 and 10000.
+        '500':
+          description: Failed to set timeout
+  
+  /datalogger/start:
+    post:
+      operationId: startDatalogger
+      summary: Starten des Loggingvorgangs
+      description: Startet das Logging der Fahrzeugdaten, bzw. startet das Warten auf das Aktivieren der Zündung.
+      tags:
+        - datalogger
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                output_file:
+                  type: string
+                  description: Optionaler Name der Output-Datei (wird automatisch generiert, falls nicht angegeben)
+                  example: 13_02_20_31_11_11_Mirai2.log
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Missing config file
+        '408':
+          description: Request Timeout Error
+
+  /datalogger/stop:
+    post:
+      operationId: stopDatalogger
+      summary: Stoppen des Loggingvorgangs
+      description: Stoppt das Logging der Fahrzeugdaten, falls es aktiv ist.
+      tags:
+        - datalogger
+      responses:
+        '200':
+          description: OK
+
+  /configs:
+    get:
+      operationId: listConfigs
+      summary: Auflisten der gespeicherten Uds- Config Dateien
+      description: Gibt eine Auflisting der vorhandenen uds-config Dateien zurück.
+      tags:
+        - file
+      parameters:
+        - name: offset
+          in: query
+          description: Anzahl der zu überspringenden Log- Dateien
+          required: false
+          schema: 
+            type: integer
+            minimum: 0
+            default: 0
+            example: 20
+        - name: limit
+          in: query
+          description: Maximale Anzahl der zurückgegebenden Log- Dateien
+          required: false
+          schema:
+            type: integer 
+            minimum: 1
+            maximum: 100
+            default: 20
+            example: 20
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - entries
+                properties:
+                  entries:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - filename
+                        - size
+                      properties:
+                        filename:
+                          type: string
+                          description: Name der Konfigurationsdatei
+                          example: UdsConfig_v07_Mirai2.csv
+                        vehicle:
+                          type: string
+                          description: Name des Autos, zu der die Konfigurationsdatei gehört
+                          example: ID3
+                        values:
+                          type: integer
+                          description: Anzahl der spezifizierten Signale
+                          example: 89
+                        size: 
+                          type: integer
+                          description: Größe der Datei in kB
+                          example: 42
+        '500':
+          description: Internal Server Error
+
+  /logs:
+    get:
+      operationId: listLogs
+      summary: Aulisten der gespeicherten Log-Dateien
+      description: Gibt eine Auflisting der vorhandenen uds-config Dateien zurück.
+      tags:
+        - file
+      parameters:
+        - name: offset
+          in: query
+          description: Anzahl der zu überspringenden Log- Dateien
+          required: false
+          schema: 
+            type: integer
+            minimum: 0
+            default: 0
+            example: 20
+        - name: limit
+          in: query
+          description: Maximale Anzahl der zurückgegebenden Log- Dateien
+          required: false
+          schema:
+            type: integer 
+            minimum: 1
+            maximum: 100
+            default: 20
+            example: 20
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - entries
+                properties:
+                  entries:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - filename
+                        - size
+                      properties:
+                        filename:
+                          type: string
+                          description: Name der Logdatei
+                          example: raw_2026-07-29_15-34.log
+                        vehicle:
+                          type: string
+                          description: Name des Autos, zu der die Konfigurationsdatei gehört
+                          example: ID3
+                        cycles:
+                          type: integer
+                          description: Anzahl der durchlaufenen Zyklen
+                          example: 1234
+                        values:
+                          type: integer
+                          description: Anzahl der spezifizierten Signale
+                          example: 89
+                        size: 
+                          type: integer
+                          description: Größe der Datei in kB
+                          example: 42
+        '500':
+          description: Internal Server Error
+
+  /csv-logs:
+    get:
+      operationId: listCsvLogs
+      summary: Auflisten der gespeicherten CSV-Log-Dateien
+      description: Gibt eine Auflisting der vorhandenen csv-log Dateien zurück.
+      tags:
+        - file
+      parameters:
+        - name: offset
+          in: query
+          description: Anzahl der zu überspringenden Log- Dateien
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+            example: 20
+        - name: limit
+          in: query
+          description: Maximale Anzahl der zurückgegebenden Log- Dateien
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+            example: 20
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - entries
+                properties:
+                  entries:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - filename
+                        - size
+                      properties:
+                        filename:
+                          type: string
+                          description: Name der Logdatei
+                          example: log_2026-07-29_15-34.csv
+                        vehicle:
+                          type: string
+                          description: Name des Autos, zu der die Konfigurationsdatei gehört
+                          example: ID3
+                        cycles:
+                          type: integer
+                          description: Anzahl der durchlaufenen Zyklen
+                          example: 1234
+                        values:
+                          type: integer
+                          description: Anzahl der spezifizierten Signale
+                          example: 89
+                        size:
+                          type: integer
+                          description: Größe der Datei in kB
+                          example: 42
+        '500':
+          description: Internal Server Error
+
+  /{+filepath}:
+    parameters:
+      - name: filepath
+        in: path
+        required: true
+        description: Pfad zur Datei oder zum Verzeichnis (z.B. configs/UdsConfig_v07_Mirai2.csv)
+        schema:
+          type: string
+        example: sdcard/configs/UdsConfig_v07_Mirai2.csv
+    get:
+      operationId: getFile
+      summary: Download einer Datei
+      description: |
+        Lädt eine Datei vom Datalogger am angegebenen Pfad herunter.
+      tags:
+        - file
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: File does not exist
+        '500':
+          description: Internal Server Error
+    
+    post:
+      operationId: uploadFile
+      summary: Upload einer Datei auf den Datalogger
+      description: |
+        Lädt eine Datei auf den Datalogger hoch und speichert sie an dem im Endpoint angegebenen Pfad.
+        Wenn an der angegebenen Stelle bereits eine Datei existiert, wird die Datei nicht gespeichert und der entsprechende Fehlercode wird zurückgesendet.
+      tags:
+        - file
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Invalid Upload Request
+        '403':
+          description: Der Nutzer darf an diesem Pfad keine Datei speichern.
+        '404':
+          description: Der Pfad, wo die Datei gespeichert werden soll, existiert nicht und kann auch nicht erstellt werden.
+        '500':
+          description: Internal Server Error
+        '507':
+          description: Insufficient storage
+    delete:
+      operationId: deleteFile
+      summary: Löschen einer Datei aus dem Logger-Speicher
+      description: Löscht die Datei an dem angegebenen Pfad vom Logger.
+      tags:
+        - file
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '403':
+          description: Der Nutzer hat keine Berechtigung, diese Datei zu löschen.
+        '404':
+          description: File not found
+        '500':
+          description: Internal Server Error
+
+  /ota:
+    post:
+      operationId: otaUpdate
+      summary: OTA-Update
+      description: Schreibt die übergebene Firmware auf den Datalogger und startet anschließend neu.
+      tags:
+        - ota
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+              description: Binary image of the new firmware
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: OTA success! Rebooting...
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                No OTA partition found:
+                  value: No OTA partition found
+                OTA Begin failed:
+                  value: OTA Begin failed
+                OTA Write failed:
+                  value: OTA write failed
+                OTA Receive Error:
+                  value: OTA receive Error
+                OTA set Boot partition failed:
+                  value: OTA set Boot partition failed
+                OTA end failed:
+                  value: OTA end failed
